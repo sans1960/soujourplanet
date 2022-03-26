@@ -20,4 +20,7 @@ class Destination extends Model
     public function post(){
         return $this->hasMany(Post::class);
     }
+    public function subregion(){
+        return $this->hasMany(Subregion::class);
+    }
 }

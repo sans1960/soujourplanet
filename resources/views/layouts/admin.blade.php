@@ -32,6 +32,7 @@
         <div class="flex flex-row items-center justify-around">
           <a href="{{ route('index') }}" class="mr-4">Home</a>
           <a href="{{ route('admin.destinations.index') }}"  class="mr-4">Destinations</a>
+          <a href="{{ route('admin.subregions.index') }}"  class="mr-4">Subregions</a>
           <a href="{{ route('admin.categories.index') }}"  class="mr-4">Categories</a>
           <a href="{{ route('admin.countries.index') }}"  class="mr-4">Countries</a>
           <a href="{{ route('admin.posts.index') }}"  class="mr-4">Posts</a>
