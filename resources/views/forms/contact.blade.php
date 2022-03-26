@@ -1,0 +1,214 @@
+@extends('layouts.formulario')
+@section('content')
+
+ <div class=" w-full">
+       @foreach ($post as $item)
+            <div class="h-80 flex flex-col items-center justify-center text-4xl font-bold text-white font-patua-one" style="background-image: url('{{asset('storage/head/'.$item->destination->head)}}');background-size:cover;background-repeat:no-repeat;background-position:center;">
+             <h1 class=" tracking-wider mb-5">Planning your trip</h1>
+              <h1 class="tracking-wider">{{$item->destination->name}}</h1>
+            </div>
+        @endforeach
+
+<div class="container mx-auto">
+   <h1 class="mt-5 mb-5 text-lg text-center text-gray-500">Inquire about a tailor-made trip with us</h1>
+   <form action="">
+    <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Your details</h1>
+         <div class="flex flex-col">
+		  <div class="flex  text-gray-400 mt-5">
+              <label for="trait" class="mr-5 p-2">Title</label>
+              <select name="trait" id="trait" class="p-2 border">
+                <option value="">Choose...</option>
+				<option value="Dr.">Dr.</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Ms.">Ms.</option>
+				<option value="Miss.">Miss.</option>
+              </select>
+            </div>
+            <input type="hidden" name="code" value="623c9dce35539">
+            <input type="hidden" name="pagina" value="Europe">
+            <div class="grid grid-cols-1 gap-4 mt-5 ml-4 mr-4 md:grid-cols-2 md:ml-0 md:mr-0">
+              <div class=" border-b-2 border-gray-400">
+                <input type="text" placeholder="Name*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="name" required>
+              </div>
+
+              <div class=" border-b-2 border-gray-400">
+                <input type="text" placeholder="Phone*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="phone" required>
+              </div>
+              <div class=" border-b-2 border-gray-400">
+                <input type="text" placeholder="Surname*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="surname" required>
+              </div>
+
+              <div class=" border-b-2 border-gray-400">
+                <input type="text" placeholder="City*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="city" required>
+              </div>
+
+            </div>
+     <div class="flex flex-col w-full mt-5 ml-4 mr-4 md:flex-row md:ml-0 md:mr-0">
+              <div class="w-full mb-4 mr-4  border-b-2 border-gray-400 md:mb-0 md:w-1/2">
+                <input type="email" placeholder="Email*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="email" required>
+              </div>
+
+              <div class="w-full mb-4 mr-2  border-b-2 border-gray-400 md:mb-0 md:w-1/4">
+                <input type="text" placeholder="State*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="state" required>
+              </div>
+              <div class="w-full mb-4  border-b-2 border-gray-400 md:mb-0 md:w-1/4">
+                <input type="text" placeholder="Zip Code" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="zipcode">
+              </div>
+
+
+            </div>
+         <div class="flex flex-col w-full mt-5 ml-4 mr-4 md:flex-row md:ml-0 md:mr-0">
+              <div class="flex flex-col w-full mr-3 md:w-1/2">
+                <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Your travel plans</h1>
+				<p class="text-xs">Later will define the departure date.</p>
+                <div class="flex flex-col justify-between p-2 mb-3 text-gray-500 md:flex-row">
+                  <label class="w-1/4 p-2" for="dur">Duration</label>
+                  <select name="duration" id="dur" class="w-3/4 p-2 border ">
+                    <option value="">Choose duration.</option>
+                    <option value="about-a-week">About a week</option>
+                    <option value="two-to-three-weeks">Two to three weeks</option>
+                    <option value="a-month-or-more">A month or more</option>
+                  </select>
+                </div>
+                <div class="flex flex-col justify-between p-2 mb-3 text-gray-500 md:flex-row">
+                  <label class="w-1/4 p-2" for="season">Season</label>
+                  <select name="season" id="season" class="w-3/4 p-2 border">
+                    <option value="">Choose season.</option>
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="autumm">Autumm</option>
+                  </select>
+                </div>
+                <div class="flex flex-col justify-between p-2 mb-3 text-gray-500 md:flex-row">
+                  <label class="w-1/4 p-2" for="travel">Travellers</label>
+                  <select name="travellers" id="travel" class="w-3/4 p-2 border">
+                    <option value="">Choose travellers</option>
+                    <option value="individual">Individual</option>
+                    <option value="couple">Couple</option>
+                    <option  value="family">Family</option>
+                    <option value="group">Group</option>
+                  </select>
+                </div>
+                <div class="flex flex-row justify-center p-2 mb-3 text-gray-500" id="child">
+                  <input type="checkbox" name="children" value="Travel with children">
+                  <label class="ml-4">Travel with children</label>
+                </div>
+              </div>
+              <div class="flex flex-col w-full md:w-1/2">
+                <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Trip type</h1>
+                <div class="flex flex-row justify-start mt-5 ml-4 text-gray-500">
+                  <input type="radio" name="triptype" id="" value="leisure">
+                  <div class="ml-5">
+                    <h4 class="text-xl">Mostly leisure</h4>
+                    <p class="text-xs">A leisure attractions trip with some cultural and gourmet attractions</p>
+                  </div>
+                </div>
+                <div class="flex flex-row justify-start mt-5 ml-4 text-gray-500">
+                  <input type="radio" name="triptype" id="" value="cultural">
+                  <div class="ml-5">
+                    <h4 class="text-xl">Mostly cultural</h4>
+                    <p class="text-xs">A cultural attractions trip with some leisure and gourmet attractions</p>
+                  </div>
+                </div>
+                <div class="flex flex-row justify-start mt-5 ml-4 text-gray-500">
+                  <input type="radio" name="triptype" id="" value="gourmet">
+                  <div class="ml-5">
+                    <h4 class="text-xl">Mostly gourmet</h4>
+                    <p class="text-xs">A gourmet attractions trip with some cultural and leisure attractions</p>
+                  </div>
+                </div>
+                <div class="flex flex-row justify-start mt-5 ml-4 text-gray-500">
+                  <input type="radio" name="triptype" id="" value="adventure">
+                  <div class="ml-5">
+                    <h4 class="text-xl">Adventure trip</h4>
+                    <p class="text-xs">With some cultural and gourmet attractions</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          <h1 class="mt-4 mb-4 ml-4 text-lg text-gray-500 md:ml-0">Other specifications</h1>
+            <div class="flex flex-col justify-start md:flex-row">
+              <div class="flex flex-row justify-center ml-3 md:0">
+                <input type="checkbox" name="specifications[]" id="" value="romantic">
+                <p class="ml-4 text-gray-500">Romantic trip</p>
+              </div>
+              <div class="flex flex-row justify-center ml-6 md:flex-row">
+                <input type="checkbox" name="specifications[]" id="" value="reduced">
+                <p class="ml-4 text-gray-500">Reduced mobility</p>
+              </div>
+
+            </div>
+            {{-- <div class="flex flex-col">
+                <h1>Your interest for:</h1>
+                <div class="flex flex-row justify-around items-center">
+                    @foreach($post as $item)
+                   <div>
+                    {{$item->title}}
+
+                   </div>
+                 @endforeach
+                 @foreach($post as $item)
+                 <div>
+                  {{$item->destination->name}}
+
+                 </div>
+               @endforeach
+               @foreach($post as $item)
+               <div>
+                {{$item->country->name}}
+
+               </div>
+             @endforeach
+                </div>
+
+            </div> --}}
+            <div class="flex flex-col">
+                <h1>Another countries of this destination</h1>
+                <div class="flex flex-row justify-between items-center">
+                    @foreach ($countries as $country)
+                    <div class="flex justify-center items-center">
+                        <input type="checkbox" name="countries[]" id="" value="{{ $country->name }}">
+                        <p class="ml-4 text-gray-500">{{ $country->name }}</p>
+                    </div>
+
+
+                @endforeach
+                </div>
+
+            </div>
+      <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
+            <div>
+              <textarea class="w-full  border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
+                @foreach ($post as $item)
+ I am interest for : {{ $item->title }}
+                @endforeach
+
+              </textarea>
+            </div>
+
+   </form>
+</div>
+
+ </div>
+
+@endsection
+@section('js')
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#travel').on('change', function() {
+   if ( this.value == 'family'){
+       $("#child").show();
+   }
+   else{
+       $("#child").hide();
+   }
+   });
+     });
+</script>
+
+@endsection
