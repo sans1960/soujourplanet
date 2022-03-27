@@ -37,14 +37,14 @@
                     <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $subregion->slug }}</td>
                     <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $subregion->destination->name }}</td>
                     <td>
-                        <a class="" href="">
+                        <a class="" href="{{ route('admin.subregions.edit',$subregion) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                               </svg>
                         </a>
                     </td>
                     <td>
-                        <form action="" method="post">
+                        <form action="{{ route('admin.subregions.destroy',$subregion) }}" method="post">
                           @csrf
                           @method('delete')
                           <button class="show_confirm" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -60,4 +60,52 @@
         {!! $subregions->links() !!}
     </div>
 </div>
+@endsection
+@section('js')
+<script src="{{ asset('js/jquery.js') }}"></script>
+
+<script src="{{ asset('js/sweetalert2.js') }}"></script>
+
+
+<script type="text/javascript">
+
+
+
+     $('.show_confirm').click(function(event) {
+
+          var form =  $(this).closest("form");
+
+          var name = $(this).data("name");
+
+          event.preventDefault();
+
+          swal({
+
+              title: `Are you sure you want to delete this record?`,
+
+              text: "If you delete this, it will be gone forever.",
+
+              icon: "warning",
+
+              buttons: true,
+
+              dangerMode: true,
+
+          })
+
+          .then((willDelete) => {
+
+            if (willDelete) {
+
+              form.submit();
+
+            }
+
+          });
+
+      });
+
+
+
+</script>
 @endsection

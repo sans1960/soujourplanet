@@ -65,9 +65,10 @@ class SubregionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subregion $subregion)
     {
-        return view('admin.subregions.edit');
+        $destinations = Destination::all();
+        return view('admin.subregions.edit',compact('subregion','destinations'));
     }
 
     /**
@@ -77,9 +78,13 @@ class SubregionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subregion $subregion)
     {
-        //
+        $subregion->name = $request->name;
+        $subregion->slug = Str::slug($request->name);
+        $subregion->destination_id = $request->destination_id;
+        $subregion->update();
+        return redirect()->route('admin.subregions.index')->with('info','Subregion Updated') ;
     }
 
     /**
@@ -88,8 +93,9 @@ class SubregionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subregion $subregion)
     {
-        //
+        $subregion->delete();
+        return redirect()->route('admin.subregions.index')->with('info','Subregion Deleted');
     }
 }
