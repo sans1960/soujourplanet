@@ -23,10 +23,11 @@
             <table class="block min-w-full border-collapse md:table">
                 <thead class="block md:table-header-group">
                     <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
-                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Id</th>
+
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell"> Name</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Slug</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Destination</th>
+                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Subregion</th>
 
                         <th colspan="2" class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
                     </tr>
@@ -34,11 +35,16 @@
                 <tbody class="block md:table-row-group">
                     @foreach ($countries as $country)
                         <tr>
-                            <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $country->id }}</td>
+
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $country->name }}</td>
+
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $country->slug }}</td>
+
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $country->destination->name }}</td>
-                            <td>
+
+
+                                <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $country->subregion->name }}</td>
+                                <td>
                                 <a class="" href="{{ route('admin.countries.edit',$country) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />

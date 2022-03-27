@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Destination;
+use App\Models\Subregion;
 use Illuminate\Support\Str;
 
 class CountryController extends Controller
@@ -28,8 +29,9 @@ class CountryController extends Controller
      */
     public function create()
     {
+        $subregions = Subregion::all();
         $destinations = Destination::orderBy('name')->get();
-        return view('admin.countries.create',compact('destinations'));
+        return view('admin.countries.create',compact('destinations','subregions'));
     }
 
     /**
@@ -40,10 +42,13 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->head->store('country', 'public');
         $country = new Country();
         $country->name = $request->name;
+        $country->head = $request->head->hashName();
         $country->slug = Str::slug($request->name);
         $country->destination_id = $request->destination_id;
+        $country->subregion_id = $request->subregion_id;
         $country->save();
         return redirect()->route('admin.countries.index')->with('info','Country Created') ;
     }
