@@ -41,7 +41,7 @@
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->subregion->name }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->country->name }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->category->name }}</td>
-                            <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->date}}</td>
+                            <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</td>
                             <td>
                                 <a class="" href="{{ route('admin.posts.edit',$post) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

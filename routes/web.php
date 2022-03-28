@@ -27,7 +27,8 @@ Route::get('category/{category}',[FrontController::class,'postscategory'])->name
 Route::get('country/{country}/category/{category}',[FrontController::class,'postscountcat'])->name('posts.countcat');
 Route::get('blog',[PageArticleController::class,'index'])->name('blog');
 Route::get('blog/{blog}',[PageArticleController::class,'pageArticles'])->name('blog.articles');
-Route::get('/contact/{slug}/destination/{destination}',[ContactController::class,'viewForm'])->name('contact');
+Route::get('/contact/{slug}/subregion/{subregion}',[ContactController::class,'viewForm'])->name('contact');
+Route::post('sendform',[ContactController::class,'sendForm'])->name('sendform');
 Route::get('/feed/europe', [RssFeedController::class,'rssEurope'])->name('feed.europe');
 Auth::routes();
 

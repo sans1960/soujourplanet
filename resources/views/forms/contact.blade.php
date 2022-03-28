@@ -13,7 +13,8 @@
 
 <div class="container mx-auto">
    <h1 class="mt-5 mb-5 text-lg text-center text-gray-500">Inquire about a tailor-made trip with us</h1>
-   <form action="">
+   <form action="{{ route('sendform') }}" method="post">
+       @csrf
     <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Your details</h1>
          <div class="flex flex-col">
 		  <div class="flex  text-gray-400 mt-5">
@@ -27,8 +28,11 @@
 				<option value="Miss.">Miss.</option>
               </select>
             </div>
-            <input type="hidden" name="code" value="623c9dce35539">
-            <input type="hidden" name="pagina" value="Europe">
+          @foreach ($post as $item)
+             <input type="hidden" name="postname" value="{{ $item->title }}">
+             <input type="hidden" name="subregion" value="{{ $item->subregion->name }}">
+             <input type="hidden" name="countryname" value="{{ $item->country->name }}">
+          @endforeach
             <div class="grid grid-cols-1 gap-4 mt-5 ml-4 mr-4 md:grid-cols-2 md:ml-0 md:mr-0">
               <div class=" border-b-2 border-gray-400">
                 <input type="text" placeholder="Name*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="name" required>
@@ -169,7 +173,10 @@
 
             </div> --}}
             <div class="flex flex-col">
-                <h1>Another countries of this destination</h1>
+                @foreach ($post as $item)
+                <h1>Another countries of {{ $item->subregion->name }}</h1>
+                @endforeach
+
                 <div class="flex flex-row justify-between items-center">
                     @foreach ($countries as $country)
                     <div class="flex justify-center items-center">
@@ -190,6 +197,17 @@
                 @endforeach
 
               </textarea>
+            </div>
+            <div class="flex flex-col items-center justify-center w-full p-5">
+                <div class="mb-4 text-gray-500">
+                  <input type="radio"  name="legal" required >
+                  <label>I aprove the <span><a href="https://sojournplanet.com/privacy-policy" target="_blank" style="text-decoration: underline;"><b>Privacy Policy</b></a></span>, and the <span><a href="https://sojournplanet.com/terms-and-conditions" target="_blank" style="text-decoration: underline;"><b>Terms and Conditions</b></a></span></label><br>
+                  </div>
+                <input class="px-8 py-2 tracking-wider bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" type="submit" value="Send" name="send">
+
+              </div>
+
+
             </div>
 
    </form>
