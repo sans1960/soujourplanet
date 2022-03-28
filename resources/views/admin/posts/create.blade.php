@@ -34,7 +34,7 @@
                 <div>
 
 
-                    <select class="w-full p-2 border-2 border-blue-500 rounded-lg" name="destination_id" id="dest">
+                    <select class="w-full p-2 border-2 border-blue-500 rounded-lg" name="subregion_id" >
                         <option>Choose Subregion</option>
                         @foreach ($subregions as $subregion)
                             <option value="{{ $subregion->id }}">{{ $subregion->name }}</option>

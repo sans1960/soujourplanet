@@ -88,7 +88,8 @@ class PostController extends Controller
         $destinations = Destination::all();
         // $countries = Country::all();
         $categories = Category::all();
-        return view('admin.posts.edit',compact('post','destinations','categories'));
+        $subregions = Subregion::all();
+        return view('admin.posts.edit',compact('post','destinations','categories','subregions'));
     }
 
     /**
@@ -105,6 +106,7 @@ class PostController extends Controller
         $post->destination_id = $request->destination_id;
         $post->country_id = $request->country_id;
         $post->category_id = $request->category_id;
+        $post->subregion_id = $request->subregion_id;
         $post->extract = $request->extract;
         $post->body = $request->body;
         $post->date = $request->date;

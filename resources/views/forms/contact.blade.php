@@ -3,9 +3,11 @@
 
  <div class=" w-full">
        @foreach ($post as $item)
-            <div class="h-80 flex flex-col items-center justify-center text-4xl font-bold text-white font-patua-one" style="background-image: url('{{asset('storage/head/'.$item->destination->head)}}');background-size:cover;background-repeat:no-repeat;background-position:center;">
-             <h1 class=" tracking-wider mb-5">Planning your trip</h1>
-              <h1 class="tracking-wider">{{$item->destination->name}}</h1>
+            <div class="h-80 flex flex-col items-center justify-center text-4xl font-bold text-white font-patua-one" style="background-image: url('{{asset('storage/country/'.$item->country->head)}}');background-size:cover;background-repeat:no-repeat;background-position:center;">
+            <h1 class=" tracking-wider mb-5">Planning your trip</h1>
+            <h1 class="tracking-wider mb-5">{{$item->subregion->name}}</h1>
+            <h1 class="tracking-wider ">{{$item->country->name}}</h1>
+
             </div>
         @endforeach
 

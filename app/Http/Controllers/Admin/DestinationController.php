@@ -38,9 +38,9 @@ class DestinationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->head->store('head', 'public');
+
         $destination = new Destination();
-        $destination->head = $request->head->hashName();
+
         $destination->name = $request->name;
         $destination->slug = Str::slug($request->name);
         $destination->save();
@@ -78,10 +78,10 @@ class DestinationController extends Controller
      */
     public function update(Request $request, Destination $destination)
     {
-        $request->head->store('head', 'public');
+
         $destination->name = $request->name;
         $destination->slug = Str::slug($request->name);
-        $destination->head = $request->head->hashName();
+
         $destination->update();
         return redirect()->route('admin.destinations.index')->with('info','Destination Updated') ;
     }
