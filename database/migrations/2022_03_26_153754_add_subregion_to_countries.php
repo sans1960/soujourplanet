@@ -14,7 +14,7 @@ class AddSubregionToCountries extends Migration
     public function up()
     {
         Schema::table('countries', function (Blueprint $table) {
-            $table->unsignedBigInteger('subregion_id')->nullable();
+            $table->unsignedBigInteger('subregion_id');
             $table->foreign('subregion_id')->references('id')->on('subregions')->onDelete('cascade');
         });
     }

@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Destination;
 use App\Models\Country;
 use App\Models\Category;
+use App\Models\Subregion;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -31,9 +32,10 @@ class PostController extends Controller
     public function create()
     {
         $destinations = Destination::all();
+        $subregions = Subregion::all();
         // $countries = Country::all();
         $categories = Category::all();
-        return view('admin.posts.create',compact('destinations','categories'));
+        return view('admin.posts.create',compact('destinations','categories','subregions'));
     }
 
     /**
@@ -50,6 +52,7 @@ class PostController extends Controller
         $post->destination_id = $request->destination_id;
         $post->country_id = $request->country_id;
         $post->category_id = $request->category_id;
+        $post->subregion_id = $request->subregion_id;
         $post->extract = $request->extract;
         $post->body = $request->body;
         $post->date = $request->date;

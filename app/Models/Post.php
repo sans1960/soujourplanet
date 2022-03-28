@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','slug','extract','body','destination_id','country_id','category_id','date'];
+    protected $guarded = [];
     public function getRouteKeyName()
     {
         return 'slug';
@@ -28,4 +28,11 @@ class Post extends Model
     public function location(){
         return $this->hasOne(Location::class);
     }
+    public function subregion(){
+        return $this->belongsTo(Subregion::class);
+    }
+
+
+
+
 }

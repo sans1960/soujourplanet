@@ -14,7 +14,7 @@ class AddSubregionToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('subregion_id')->nullable();
+            $table->unsignedBigInteger('subregion_id');
             $table->foreign('subregion_id')->references('id')->on('subregions')->onDelete('cascade');
         });
     }

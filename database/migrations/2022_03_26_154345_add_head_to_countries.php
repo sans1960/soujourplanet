@@ -14,7 +14,7 @@ class AddHeadToCountries extends Migration
     public function up()
     {
         Schema::table('countries', function (Blueprint $table) {
-            $table->string('head')->nullable();
+            $table->string('head');
         });
     }
 

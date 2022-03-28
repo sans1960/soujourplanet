@@ -25,6 +25,7 @@
                     <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Title</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell"> Destination</th>
+                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell"> Subregion</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Country</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Category</th>
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Date</th>
@@ -37,6 +38,7 @@
                         <tr>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $post->title }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->destination->name }}</td>
+                            <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->subregion->name }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->country->name }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->category->name }}</td>
                             <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $post->date}}</td>
