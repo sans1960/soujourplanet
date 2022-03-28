@@ -64,7 +64,7 @@
                     @endforeach
                 </tbody>
               </table>
-              <div class="mt-6">
+              <div class="mt-6 mb-6">
                 {!! $countries->links() !!}
             </div>
         </div>

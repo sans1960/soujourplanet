@@ -18,7 +18,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::paginate(5);
+        $countries = Country::paginate(8);
         return view('admin.countries.index',compact('countries'));
     }
 
@@ -73,7 +73,8 @@ class CountryController extends Controller
     public function edit(Country $country)
     {
         $destinations = Destination::orderBy('name')->get();
-        return view('admin.countries.edit',compact('country','destinations'));
+        $subregions = Subregion::all();
+        return view('admin.countries.edit',compact('country','destinations','subregions'));
     }
 
     /**
@@ -85,10 +86,12 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-
+        $request->head->store('country', 'public');
         $country->name = $request->name;
         $country->slug = Str::slug($request->name);
+        $country->head = $request->head->hashName();
         $country->destination_id = $request->destination_id;
+        $country->subregion_id = $request->subregion_id;
         $country->update();
         return redirect()->route('admin.countries.index')->with('info','Country updated') ;
     }
