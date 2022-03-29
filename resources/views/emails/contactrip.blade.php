@@ -2,16 +2,17 @@
 # Welcome to Sojourplanet
 
 Dear {{ $data['trait'] }} {{ $data['name'] }} {{ $data['surname'] }}
-{{ $data['season'] }}
 
-{{ $data['duration'] }}
+Your travel interest to : {{ $data['subregion'] }}
 
-{{ $data['travellers'] }}
+Soon will recived ours notices
 
 {{ $data['triptype'] }}
+
 {{ $data['postname'] }}
+
 {{ $data['countryname'] }}
-{{ $data['subregion'] }}
+
 
 @component('mail::button', ['url' => 'https://sojournplanet.com/home'])
 Visit

@@ -55,7 +55,8 @@ class ContactController extends Controller
 
         // return $inputData;
         Mail::to($toEmail)->send(new ContactTrip($data));
-        return view('forms.sended')->with('info','Mail sent successfully');
+        $country = Country::where('name',$data['countryname'])->get();
+        return view('forms.sended',compact('country','data'));
 
 
     }
