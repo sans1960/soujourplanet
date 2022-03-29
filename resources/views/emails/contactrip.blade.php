@@ -1,10 +1,20 @@
 @component('mail::message')
-# Introduction
+# Welcome to Sojourplanet
 
-The body of your message.
+Dear {{ $data['trait'] }} {{ $data['name'] }} {{ $data['surname'] }}
+{{ $data['season'] }}
 
-@component('mail::button', ['url' => ''])
-Button Text
+{{ $data['duration'] }}
+
+{{ $data['travellers'] }}
+
+{{ $data['triptype'] }}
+{{ $data['postname'] }}
+{{ $data['countryname'] }}
+{{ $data['subregion'] }}
+
+@component('mail::button', ['url' => 'https://sojournplanet.com/home'])
+Visit
 @endcomponent
 
 Thanks,<br>
