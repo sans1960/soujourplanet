@@ -9,11 +9,13 @@ use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\DataContactsController;
 use App\Http\Controllers\Admin\SubregionController;
 
 
 
 Route::get('/admin',[PanelController::class,'index'])->name('admin.home');
+Route ::get('data',[DataContactsController::class,'index'])->name('admin.data');
 Route::resource('destinations',DestinationController::class)->names('admin.destinations');
 Route::resource('subregions',SubregionController::class)->names('admin.subregions');
 Route::resource('countries',CountryController::class)->names('admin.countries');

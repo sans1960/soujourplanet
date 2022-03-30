@@ -40,6 +40,7 @@
           <a href="{{ route('admin.locations.index') }}"  class="mr-4">Locations</a>
           <a href="{{ route('admin.pages.index') }}"  class="mr-4">Pages</a>
           <a href="{{ route('admin.articles.index') }}"  class="mr-4">Articles</a>
+          <a href="{{ route('admin.data') }}"  class="mr-4">Data</a>
         </div>
         <div class="flex flex-row ">
             <a href=""  class="mr-4">  {{ Auth::user()->name }}</a>
