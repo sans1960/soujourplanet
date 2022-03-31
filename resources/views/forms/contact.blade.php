@@ -29,10 +29,12 @@
               </select>
             </div>
           @foreach ($post as $item)
+
              <input type="hidden" name="postname" value="{{ $item->title }}">
              <input type="hidden" name="subregion" value="{{ $item->subregion->name }}">
              <input type="hidden" name="countryname" value="{{ $item->country->name }}">
           @endforeach
+          <input type="hidden" name="code" value="{{ Str::orderedUuid(); }}">
             <div class="grid grid-cols-1 gap-4 mt-5 ml-4 mr-4 md:grid-cols-2 md:ml-0 md:mr-0">
               <div class=" border-b-2 border-gray-400">
                 <input type="text" placeholder="Name*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="name" required>

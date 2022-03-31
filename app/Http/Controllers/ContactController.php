@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Country;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use App\Mail\ContactTrip;
+use App\Notifications\NewContact;
 use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
@@ -27,6 +29,7 @@ class ContactController extends Controller
             "postname" => $request->postname,
             "subregion" => $request->subregion,
             "countryname" => $request->countryname,
+            "code"        => $request->code,
             "trait"     =>    $request->trait,
             "name"       =>   $request->name,
             "surname"       =>   $request->surname,
@@ -55,6 +58,10 @@ class ContactController extends Controller
 
         // return $inputData;
         Mail::to($toEmail)->send(new ContactTrip($data));
+        $note = "New Contact";
+        Notification::route('mail', 'g.sans.real@gmail.com')
+                ->notify(new NewContact($note));
+
         $country = Country::where('name',$data['countryname'])->get();
         return view('forms.sended',compact('country','data'));
 
