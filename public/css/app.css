@@ -507,6 +507,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-5{
   height: 1.25rem;
 }
+.h-full{
+  height: 100%;
+}
 .w-3\/4{
   width: 75%;
 }

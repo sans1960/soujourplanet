@@ -18,8 +18,8 @@
 
         </nav>
       @yield('content')
-      <footer class="mt-5 bg-slate-800">
-        <div class="flex flex-col items-center justify-between p-6 mt-5 text-white md:flex-row font-open-sans">
+      <footer class=" bg-slate-800">
+        <div class="flex flex-col items-center justify-between p-6 text-white md:flex-row font-open-sans">
             <div class="flex flex-col items-center justify-start md:flex-row">
             <p>Copyright © 2021 Sojournplanet - All rights reserved -</p>
                  <a href="https://sojournplanet.com/images-copyright" class="text-gray-300 underline hover:text-white" target="_blank">Images Copyright</a>
