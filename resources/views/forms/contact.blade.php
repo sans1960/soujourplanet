@@ -1,12 +1,13 @@
 @extends('layouts.formulario')
 @section('content')
 
- <div class=" w-full">
+ <div class="w-full ">
        @foreach ($post as $item)
-            <div class="h-80 flex flex-col items-center justify-center text-4xl font-bold text-white font-patua-one" style="background-image: url('{{asset('storage/country/'.$item->country->head)}}');background-size:cover;background-repeat:no-repeat;background-position:center;">
-            <h1 class=" tracking-wider mb-5">Planning your trip</h1>
-            <h1 class="tracking-wider mb-5">{{$item->subregion->name}}</h1>
-            <h1 class="tracking-wider ">{{$item->country->name}}</h1>
+            <div class="flex flex-col items-center justify-center text-4xl font-bold text-white h-80 font-patua-one" style="background-image: url('{{asset('storage/country/'.$item->country->head)}}');background-size:cover;background-repeat:no-repeat;background-position:center;">
+            <h1 class="mb-5 tracking-wider ">Planning your trip</h1>
+            {{-- <h1 class="mb-5 tracking-wider">{{$item->subregion->name}}</h1> --}}
+            <h1 class="mt-5 mb-5">By</h1>
+            <h1 class="mt-5 tracking-wider">{{$item->country->name}}</h1>
 
             </div>
         @endforeach
@@ -17,8 +18,8 @@
        @csrf
     <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Your details</h1>
          <div class="flex flex-col">
-		  <div class="flex  text-gray-400 mt-5">
-              <label for="trait" class="mr-5 p-2">Title</label>
+		  <div class="flex mt-5 text-gray-400">
+              <label for="trait" class="p-2 mr-5">Title</label>
               <select name="trait" id="trait" class="p-2 border">
                 <option value="">Choose...</option>
 				<option value="Dr.">Dr.</option>
@@ -36,31 +37,31 @@
           @endforeach
           <input type="hidden" name="code" value="{{ Str::orderedUuid(); }}">
             <div class="grid grid-cols-1 gap-4 mt-5 ml-4 mr-4 md:grid-cols-2 md:ml-0 md:mr-0">
-              <div class=" border-b-2 border-gray-400">
+              <div class="border-b-2 border-gray-400 ">
                 <input type="text" placeholder="Name*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="name" required>
               </div>
 
-              <div class=" border-b-2 border-gray-400">
+              <div class="border-b-2 border-gray-400 ">
                 <input type="text" placeholder="Phone*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="phone" required>
               </div>
-              <div class=" border-b-2 border-gray-400">
+              <div class="border-b-2 border-gray-400 ">
                 <input type="text" placeholder="Surname*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="surname" required>
               </div>
 
-              <div class=" border-b-2 border-gray-400">
+              <div class="border-b-2 border-gray-400 ">
                 <input type="text" placeholder="City*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="city" required>
               </div>
 
             </div>
      <div class="flex flex-col w-full mt-5 ml-4 mr-4 md:flex-row md:ml-0 md:mr-0">
-              <div class="w-full mb-4 mr-4  border-b-2 border-gray-400 md:mb-0 md:w-1/2">
+              <div class="w-full mb-4 mr-4 border-b-2 border-gray-400 md:mb-0 md:w-1/2">
                 <input type="email" placeholder="Email*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="email" required>
               </div>
 
-              <div class="w-full mb-4 mr-2  border-b-2 border-gray-400 md:mb-0 md:w-1/4">
+              <div class="w-full mb-4 mr-2 border-b-2 border-gray-400 md:mb-0 md:w-1/4">
                 <input type="text" placeholder="State*" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="state" required>
               </div>
-              <div class="w-full mb-4  border-b-2 border-gray-400 md:mb-0 md:w-1/4">
+              <div class="w-full mb-4 border-b-2 border-gray-400 md:mb-0 md:w-1/4">
                 <input type="text" placeholder="Zip Code" class="w-full p-2 bg-transparent border-none outline-none appearance-none" name="zipcode">
               </div>
 
@@ -152,7 +153,7 @@
             </div>
             {{-- <div class="flex flex-col">
                 <h1>Your interest for:</h1>
-                <div class="flex flex-row justify-around items-center">
+                <div class="flex flex-row items-center justify-around">
                     @foreach($post as $item)
                    <div>
                     {{$item->title}}
@@ -179,9 +180,9 @@
                 <h1>Another countries of {{ $item->subregion->name }}</h1>
                 @endforeach
 
-                <div class="flex flex-row justify-between items-center">
+                <div class="flex flex-row items-center justify-between">
                     @foreach ($countries as $country)
-                    <div class="flex justify-center items-center">
+                    <div class="flex items-center justify-center">
                         <input type="checkbox" name="countries[]" id="" value="{{ $country->name }}">
                         <p class="ml-4 text-gray-500">{{ $country->name }}</p>
                     </div>
@@ -193,7 +194,7 @@
             </div>
       <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
             <div>
-              <textarea class="w-full  border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
+              <textarea class="w-full border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
                 @foreach ($post as $item)
  I am interest for : {{ $item->title }}
                 @endforeach
