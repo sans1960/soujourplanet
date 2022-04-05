@@ -75,10 +75,6 @@
     </script>
 <script>
 
-    ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+CKEDITOR.replace( 'body' );
 </script>
 @endsection

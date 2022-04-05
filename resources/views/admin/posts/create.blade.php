@@ -46,10 +46,14 @@
                 </div>
             </div>
             <div class="mt-5">
-                <textarea name="extract" id="extract" placeholder="Extract" cols="30" rows="10"></textarea>
+                <textarea name="extract" id="extract"  cols="30" rows="10">
+                    Extract
+                </textarea>
             </div>
             <div class="mt-5">
-                <textarea name="body" id="body" placeholder="Body" cols="30" rows="10"></textarea>
+                <textarea name="body" id="body" placeholder="Body" cols="30" rows="10">
+                    Body
+                </textarea>
             </div>
             <div>
 
@@ -99,16 +103,8 @@
 
 </script>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#extract' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+  CKEDITOR.replace( 'extract' );
+  CKEDITOR.replace( 'body' );
 </script>
 
 

@@ -18,7 +18,7 @@
 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('ckeditor5/ckeditor.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
 
 

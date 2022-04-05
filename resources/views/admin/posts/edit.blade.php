@@ -105,16 +105,8 @@
 
 </script>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#extract' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    CKEDITOR.replace( 'extract' );
+    CKEDITOR.replace( 'body' );
 </script>
 
 
