@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Destination;
 use App\Models\Subregion;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
+
 
 class CountryController extends Controller
 {
@@ -86,10 +89,18 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        $request->head->store('country', 'public');
+        if($request->hasFile('head')){
+            unlink(storage_path('app/public/country/'.$country->head));
+            $request->head->store('country', 'public');
+            $country->head = $request->head->hashName();
+        }
+
+
+
+
         $country->name = $request->name;
         $country->slug = Str::slug($request->name);
-        $country->head = $request->head->hashName();
+
         $country->destination_id = $request->destination_id;
         $country->subregion_id = $request->subregion_id;
         $country->update();
