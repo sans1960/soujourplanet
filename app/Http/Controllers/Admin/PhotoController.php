@@ -85,13 +85,14 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        $request->image->store('photos', 'public');
-        $photo = new Photo([
-            "caption" => $request->get('caption'),
-            "image" => $request->image->hashName(),
-            "post_id"=>$request->get('post_id')
-        ]);
-        $photo->update(); // Finally, save the record.
+        if($request->hasFile('image')){
+            unlink(storage_path('app/public/photos/'.$photo->image));
+            $request->image->store('photos', 'public');
+            $photo->image = $request->image->hashName();
+        }
+        $photo->post_id = $request->post_id;
+        $photo->caption = $request->caption;
+        $photo->update();
         return redirect()->route('admin.photos.index')->with('info','Photo Updated') ;
     }
 

@@ -15,10 +15,10 @@
         <img class="w-5/6 mx-auto rounded-lg" src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="Trulli" >
         <figcaption class="text-center text-gray-600 font-open-sans">{{ $post->photo->caption }}</figcaption>
       </figure>
-     <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-8">
+     <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-0">
          {!! $post->extract !!}
      </div>
-     <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-8">
+     <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-0">
         {!! $post->body !!}
     </div>
     <div class="mx-auto mt-4 mb-5">

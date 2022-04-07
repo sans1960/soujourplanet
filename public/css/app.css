@@ -760,6 +760,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .indent-8{
   text-indent: 2rem;
 }
+.indent-0{
+  text-indent: 0px;
+}
 .align-baseline{
   vertical-align: baseline;
 }
