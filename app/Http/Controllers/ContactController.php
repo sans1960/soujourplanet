@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
-    public function viewForm($slug,$subregion_id){
+    public function viewForm($slug,$subregion_id,$country_id){
         $post = Post::where('slug',$slug)->get();
         $countries = Country::where('subregion_id',$subregion_id)->get();
-
-
-
-
-
-        return view('forms.contact',compact('post','countries'));
+        $items = Post::where('country_id',$country_id)->get();
+        
+        return view('forms.contact',compact('post','countries','items'));
     }
     public function sendForm(Request $request){
         $toEmail    =   $request->email;

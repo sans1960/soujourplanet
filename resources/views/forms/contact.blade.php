@@ -151,47 +151,48 @@
               </div>
 
             </div>
-            {{-- <div class="flex flex-col">
-                <h1>Your interest for:</h1>
-                <div class="flex flex-row items-center justify-around">
-                    @foreach($post as $item)
-                   <div>
-                    {{$item->title}}
-
-                   </div>
-                 @endforeach
-                 @foreach($post as $item)
-                 <div>
-                  {{$item->destination->name}}
-
-                 </div>
-               @endforeach
-               @foreach($post as $item)
-               <div>
-                {{$item->country->name}}
-
-               </div>
-             @endforeach
-                </div>
-
-            </div> --}}
+        <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col">
                 @foreach ($post as $item)
-                <h1>Another countries of {{ $item->subregion->name }}</h1>
+                <h1 class="mt-5 text-lg text-gray-500"> Countries of {{ $item->subregion->name }}</h1>
                 @endforeach
 
-                <div class="flex flex-row items-center justify-between">
-                    @foreach ($countries as $country)
-                    <div class="flex items-center justify-center">
-                        <input type="checkbox" name="countries[]" id="" value="{{ $country->name }}">
-                        <p class="ml-4 text-gray-500">{{ $country->name }}</p>
-                    </div>
+                <div class="flex flex-row items-center justify-between w-full mt-5">
+                    <select name="countries[]" id="one" multiple="multiple">
+
+                        @foreach ($countries as $country)
+
+                        <option value="{{ $country->name }}">{{ $country->name }}</option>
 
 
-                @endforeach
+                    @endforeach
+                    </select>
+
                 </div>
 
             </div>
+            <div class="flex flex-col">
+                @foreach ($post as $item)
+                <h1 class="mt-5 text-lg text-gray-500"> Posts of {{ $item->country->name }}</h1>
+                @endforeach
+
+                <div class="flex flex-row items-center justify-between w-full mt-5">
+                    <select name="posts[]" id="two" multiple="multiple">
+
+                        @foreach ($items as $box)
+
+                        <option value="{{ $box->slug }}">{{ $box->title }}</option>
+
+
+                    @endforeach
+                    </select>
+
+                </div>
+
+            </div>
+        </div>
+       
+
       <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
             <div>
               <textarea class="w-full border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
@@ -221,6 +222,7 @@
 @endsection
 @section('js')
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/easySelect.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $('#travel').on('change', function() {
@@ -233,5 +235,28 @@ $(document).ready(function(){
    });
      });
 </script>
-
+<script>
+   $("#one").easySelect({
+         buttons: true, //
+        //  search: true,
+         placeholder: 'Choose countries',
+         placeholderColor: '#524781',
+         selectColor: '#524781',
+         itemTitle: 'Countrys selected',
+         showEachItem: true,
+         width: '80%',
+         dropdownMaxHeight: '450px',
+     })
+     $("#two").easySelect({
+         buttons: true, //
+        //  search: false,
+         placeholder: 'Choose Posts',
+         placeholderColor: '#524781',
+         selectColor: '#524781',
+         itemTitle: 'Posts selected',
+         showEachItem: true,
+         width: '80%',
+         dropdownMaxHeight: '450px',
+     })
+</script>
 @endsection

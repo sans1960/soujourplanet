@@ -22,7 +22,7 @@
         {!! $post->body !!}
     </div>
     <div class="mx-auto mt-4 mb-5">
-        <a class="px-8 py-2 tracking-wider bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" href="{{ route('contact',[$post->slug,$post->subregion_id]) }}">Start to plan my trip</a>
+        <a class="px-8 py-2 tracking-wider bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" href="{{ route('contact',[$post->slug,$post->subregion_id,$post->country_id]) }}">Start to plan my trip</a>
     </div>
     <div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
 
