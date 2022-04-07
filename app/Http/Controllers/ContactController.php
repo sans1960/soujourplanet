@@ -17,7 +17,7 @@ class ContactController extends Controller
         $post = Post::where('slug',$slug)->get();
         $countries = Country::where('subregion_id',$subregion_id)->get();
         $items = Post::where('country_id',$country_id)->get();
-        
+
         return view('forms.contact',compact('post','countries','items'));
     }
     public function sendForm(Request $request){
@@ -41,6 +41,7 @@ class ContactController extends Controller
             "triptype"       =>   $request->triptype,
             "specifications"       =>   $request->specifications,
             "countries"       =>   $request->countries,
+            "posts"         => $request->posts,
             "message"       =>   $request->message,
         );
         $contactInfo = Storage::disk('local')->exists('data.json') ? json_decode(Storage::disk('local')->get('data.json')) : [];
