@@ -21,6 +21,9 @@ Route::resource('subregions',SubregionController::class)->names('admin.subregion
 Route::resource('countries',CountryController::class)->names('admin.countries');
 Route::resource('categories',CategoryController::class)->names('admin.categories');
 Route::resource('posts',PostController::class)->names('admin.posts');
+Route::get('find',[PostController::class,'find'])->name('find');
+Route::post('search',[PostController::class,'search'])->name('search');
+
 Route::resource('photos',PhotoController::class)->names('admin.photos');
 Route::resource('locations',LocationController::class)->names('admin.locations');
 Route::resource('pages',PageController::class)->names('admin.pages');

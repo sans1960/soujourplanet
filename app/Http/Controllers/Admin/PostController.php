@@ -130,5 +130,13 @@ class PostController extends Controller
         if (count($countries) > 0) {
             return response()->json($countries);
         }
-  }
+    }
+    public function find(){
+        return view('admin.posts.search');
+    }
+    public function search(Request $request){
+        $search = $request->input('search');
+        $posts = Post::where('title','LIKE',"%{$search}%")->get();
+        return view('admin.posts.search', compact('posts'));
+    }
 }
