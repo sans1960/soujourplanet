@@ -172,8 +172,9 @@
 
             </div>
             <div class="flex flex-col">
+                @if ($items->isNotEmpty())
                 @foreach ($post as $item)
-                <h1 class="mt-5 text-lg text-gray-500"> Posts of {{ $item->country->name }}</h1>
+                <h1 class="mt-5 text-lg text-gray-500">More posts of {{ $item->country->name }}</h1>
                 @endforeach
 
                 <div class="flex flex-row items-center justify-between w-full mt-5">
@@ -188,10 +189,20 @@
                     </select>
 
                 </div>
+                @else
+                @foreach ($post as $item)
+                <h1 class="mt-5 text-lg text-gray-500">More posts of {{ $item->country->name }}</h1>
+                @endforeach
+                    <div class="mt-5">
+                        <p class="text-xl">Sorry there are no more posts yet</p>
+                    </div>
+
+                @endif
+
 
             </div>
         </div>
-       
+
 
       <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
             <div>

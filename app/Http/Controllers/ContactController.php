@@ -16,7 +16,7 @@ class ContactController extends Controller
     public function viewForm($slug,$subregion_id,$country_id){
         $post = Post::where('slug',$slug)->get();
         $countries = Country::where('subregion_id',$subregion_id)->get();
-        $items = Post::where('country_id',$country_id)->get();
+        $items = Post::where('country_id',$country_id)->where('slug','<>',$slug)->get();
 
         return view('forms.contact',compact('post','countries','items'));
     }
