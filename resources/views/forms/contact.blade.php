@@ -100,7 +100,7 @@
                     <option value="group">Group</option>
                   </select>
                 </div>
-                <div class="flex flex-row justify-center p-2 mb-3 text-gray-500" id="child">
+                <div class=" flex-row justify-center hidden p-2 mb-3 text-gray-500" id="child">
                   <input type="checkbox" name="children" value="Travel with children">
                   <label class="ml-4">Travel with children</label>
                 </div>
@@ -151,13 +151,22 @@
               </div>
 
             </div>
-        <div class="grid grid-cols-2 gap-4">
+            <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
+            <div>
+              <textarea class="w-full border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
+                @foreach ($post as $item)
+                    I am interest for : {{ $item->title }}
+                @endforeach
+
+              </textarea>
+            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col">
                 @foreach ($post as $item)
                 <h1 class="mt-5 text-lg text-gray-500"> Countries of {{ $item->subregion->name }}</h1>
                 @endforeach
 
-                <div class="flex flex-row items-center justify-between w-full mt-5">
+                <div class="flex flex-row items-center justify-center w-full mt-5">
                     <select name="countries[]" id="one" multiple="multiple">
 
                         @foreach ($countries as $country)
@@ -174,28 +183,21 @@
             <div class="flex flex-col">
                 @if ($items->isNotEmpty())
                 @foreach ($post as $item)
-                <h1 class="mt-5 text-lg text-gray-500">More posts of {{ $item->country->name }}</h1>
+                <h1 class="mt-5 text-lg text-center text-gray-500">More turistic sites of {{ $item->country->name }}</h1>
                 @endforeach
 
-                <div class="flex flex-row items-center justify-between w-full mt-5">
-                    <select name="posts[]" id="two" multiple="multiple">
+                <div class="flex flex-col  justify-start w-full mt-5">
 
-                        @foreach ($items as $box)
-
-                        <option value="{{ $box->slug }}">{{ $box->title }}</option>
-
-
+                    @foreach ($items as $box)
+                    <div class="flex flex-row justify-center items-center mx-auto ">
+                        <input type="checkbox" name="posts[]" id="" value="{{ $box->title }}">
+                        <p class="ml-4 text-gray-500">{{ $box->title }}</p>
+                      </div>
                     @endforeach
-                    </select>
 
                 </div>
                 @else
-                @foreach ($post as $item)
-                <h1 class="mt-5 text-lg text-gray-500">More posts of {{ $item->country->name }}</h1>
-                @endforeach
-                    <div class="mt-5">
-                        <p class="text-xl">Sorry there are no more posts yet</p>
-                    </div>
+
 
                 @endif
 
@@ -204,16 +206,8 @@
         </div>
 
 
-      <h1 class="mt-4 mb-4 ml-4 text-2xl text-gray-500 md:ml-0">More info</h1>
-            <div>
-              <textarea class="w-full border-4 border-gray-400 appearance-none"  name="message" id="" cols="30" rows="10">
-                @foreach ($post as $item)
- I am interest for : {{ $item->title }}
-                @endforeach
 
-              </textarea>
-            </div>
-            <div class="flex flex-col items-center justify-center w-full p-5">
+            <div class="flex flex-col items-center justify-center mt-5 w-full p-5">
                 <div class="mb-4 text-gray-500">
                   <input type="radio"  name="legal" required >
                   <label>I aprove the <span><a href="https://sojournplanet.com/privacy-policy" target="_blank" style="text-decoration: underline;"><b>Privacy Policy</b></a></span>, and the <span><a href="https://sojournplanet.com/terms-and-conditions" target="_blank" style="text-decoration: underline;"><b>Terms and Conditions</b></a></span></label><br>
@@ -258,16 +252,6 @@ $(document).ready(function(){
          width: '80%',
          dropdownMaxHeight: '450px',
      })
-     $("#two").easySelect({
-         buttons: true, //
-        //  search: false,
-         placeholder: 'Choose Posts',
-         placeholderColor: '#524781',
-         selectColor: '#524781',
-         itemTitle: 'Posts selected',
-         showEachItem: true,
-         width: '80%',
-         dropdownMaxHeight: '450px',
-     })
+
 </script>
 @endsection
