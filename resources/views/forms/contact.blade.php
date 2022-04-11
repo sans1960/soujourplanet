@@ -15,6 +15,7 @@
 <div class="container mx-auto">
    <h1 class="mt-5 mb-5 text-lg text-center text-gray-500">Inquire about a tailor-made trip with us</h1>
    <form action="{{ route('sendform') }}" method="post">
+    <x-honeypot />
        @csrf
     <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Your details</h1>
          <div class="flex flex-col">
