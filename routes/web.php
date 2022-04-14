@@ -31,6 +31,11 @@ Route::get('blog/{blog}',[PageArticleController::class,'pageArticles'])->name('b
 Route::get('/contact/{slug}/subregion/{subregion}/country/{country}',[ContactController::class,'viewForm'])->name('contact');
 Route::post('sendform',[ContactController::class,'sendForm'])->middleware(ProtectAgainstSpam::class)->name('sendform');
 Route::get('/feed/europe', [RssFeedController::class,'rssEurope'])->name('feed.europe');
+Route::get('/feed/caribbean', [RssFeedController::class,'rssCaribbean'])->name('feed.caribbean');
+Route::get('/feed/oceania', [RssFeedController::class,'rssOceania'])->name('feed.oceania');
+Route::get('/feed/southasia', [RssFeedController::class,'rssSouthAsia'])->name('feed.southasia');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
