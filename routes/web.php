@@ -35,6 +35,17 @@ Route::get('/feed/caribbean', [RssFeedController::class,'rssCaribbean'])->name('
 Route::get('/feed/oceania', [RssFeedController::class,'rssOceania'])->name('feed.oceania');
 Route::get('/feed/southasia', [RssFeedController::class,'rssSouthAsia'])->name('feed.southasia');
 Route::get('/feed/southamerica', [RssFeedController::class,'rssSouthAmerica'])->name('feed.southamerica');
+Route::get('/feed/subsaharan', [RssFeedController::class,'rssSubsaharan'])->name('feed.subsaharan');
+Route::get('/feed/maghreb', [RssFeedController::class,'rssMaghreb'])->name('feed.maghreb');
+Route::get('/feed/northeastasia', [RssFeedController::class,'rssNorthEastAsia'])->name('feed.northeastasia');
+Route::get('/feed/southeastasia', [RssFeedController::class,'rssSouthEastAsia'])->name('feed.southeastasia');
+Route::get('/feed/centralasia', [RssFeedController::class,'rssCentralAsia'])->name('feed.centralasia');
+Route::get('/feed/centralamerica', [RssFeedController::class,'rssCentralAmerica'])->name('feed.centralamerica');
+Route::get('/feed/general', [RssFeedController::class,'rssGeneral'])->name('feed.general');
+
+
+
+
 
 
 Auth::routes();
