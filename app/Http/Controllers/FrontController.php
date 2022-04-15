@@ -42,9 +42,21 @@ class FrontController extends Controller
     }
     public function viewpost(Post $post)
     {
+        $posts = Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->get();
+        if($posts->isNotEmpty()){
+            $posts = Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->get();
+        }else{
+            $posts = Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(5)->get();
+            if($posts->isEmpty()){
+              $posts= Post::where('destination_id',$post->destination_id)->where('id','<>',$post->id)->take(5)->get();
+            }else{
+                $posts = Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(5)->get();
+            }
+        }
 
 
-        return view('posts.post', compact('post'));
+
+        return view('posts.post', compact('post','posts'));
     }
     public function postscountries(Country $country)
     {
