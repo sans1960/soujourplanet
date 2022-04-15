@@ -23,4 +23,8 @@ class RssFeedController extends Controller
         $posts = Post::where('destination_id',4)->orderBy('date','ASC')->get();
         return response()->view('feed.southasia',compact('posts'))->header('Content-Type','application/xml');
     }
+    public function rssSouthAmerica(){
+        $posts = Post::where('destination_id',5)->orderBy('date','ASC')->get();
+        return response()->view('feed.southamerica',compact('posts'))->header('Content-Type','application/xml');
+    }
 }

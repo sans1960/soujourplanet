@@ -34,6 +34,7 @@ Route::get('/feed/europe', [RssFeedController::class,'rssEurope'])->name('feed.e
 Route::get('/feed/caribbean', [RssFeedController::class,'rssCaribbean'])->name('feed.caribbean');
 Route::get('/feed/oceania', [RssFeedController::class,'rssOceania'])->name('feed.oceania');
 Route::get('/feed/southasia', [RssFeedController::class,'rssSouthAsia'])->name('feed.southasia');
+Route::get('/feed/southamerica', [RssFeedController::class,'rssSouthAmerica'])->name('feed.southamerica');
 
 
 Auth::routes();
