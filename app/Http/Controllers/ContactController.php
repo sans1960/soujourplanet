@@ -13,11 +13,20 @@ use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
-    public function viewForm($slug,$subregion_id,$country_id){
+    public function viewForm($destination_id, $slug,$subregion_id,$country_id){
         $post = Post::where('slug',$slug)->get();
         $countries = Country::where('subregion_id',$subregion_id)->get();
         $items = Post::where('country_id',$country_id)->where('slug','<>',$slug)->get();
-
+            if($items->isNotEmpty()){
+                $items = Post::where('country_id',$country_id)->where('slug','<>',$slug)->get();
+            }else{
+                $items=Post::where('subregion_id',$subregion_id)->where('slug','<>',$slug)->take(5)->get();
+                if($items->isEmpty()){
+                    $items=Post::where('destination_id',$destination_id)->where('slug','<>',$slug)->take(5)->get();
+                }else{
+                    $items=Post::where('subregion_id',$subregion_id)->where('slug','<>',$slug)->take(5)->get();
+                }
+            }
         return view('forms.contact',compact('post','countries','items'));
     }
     public function sendForm(Request $request){

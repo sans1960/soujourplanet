@@ -182,27 +182,18 @@
 
             </div>
             <div class="flex flex-col">
-                @if ($items->isNotEmpty())
-                @foreach ($post as $item)
-                <h1 class="mt-5 text-lg text-center text-gray-500">More turistic sites of {{ $item->country->name }}</h1>
-                @endforeach
 
-                <div class="flex flex-col  justify-start w-full mt-5">
+               <h1  class="mt-5 text-lg text-center text-gray-500">More sites related</h1>
+               <div class="flex flex-col  justify-start w-full mt-5">
 
-                    @foreach ($items as $box)
-                    <div class="flex flex-row justify-center items-center mx-auto ">
-                        <input type="checkbox" name="posts[]" id="" value="{{ $box->title }}">
-                        <p class="ml-4 text-gray-500">{{ $box->title }}</p>
-                      </div>
-                    @endforeach
+               @foreach ($items as $box)
+               <div class="flex flex-row justify-center items-center mx-auto ">
+                   <input type="checkbox" name="posts[]" id="" value="{{ $box->title }}">
+                   <p class="ml-4 text-gray-500">{{ $box->title }}</p>
+                 </div>
+               @endforeach
 
-                </div>
-                @else
-
-
-                @endif
-
-
+           </div>
             </div>
         </div>
 
