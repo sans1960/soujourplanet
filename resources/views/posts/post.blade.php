@@ -15,10 +15,10 @@
             <img class="w-full mx-auto rounded-lg" src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="Trulli" >
             <figcaption class="text-center text-gray-600 font-open-sans">{{ $post->photo->caption }}</figcaption>
           </figure>
-         <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-0">
+         <div class="p-3 m-4 tracking-wide text-gray-600 font-open-sans indent-0">
              {!! $post->extract !!}
          </div>
-         <div class="p-3 tracking-wide text-gray-600 font-open-sans indent-0">
+         <div class="p-3 m-3 tracking-wide text-gray-600 font-open-sans indent-0">
             {!! $post->body !!}
         </div>
         <div class="flex items-center justify-center mx-auto mt-4 mb-5">
@@ -36,10 +36,10 @@
         <div>
             <h3 class="mt-6 text-2xl text-center font-patua-one">Posts relataded</h3>
         </div>
-        <div class="flex flex-row mt-5 lg:flex-col">
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-1">
             @foreach ($posts as $post)
             <a class="mx-auto " href="{{ route('posts.post',$post) }}">
-              <div class="mt-5 overflow-hidden rounded-lg shadow-xl">
+              <div class="m-5  overflow-hidden rounded-lg shadow-xl ">
                   <img src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="">
                   <p class="m-2 text-gray-500">{{ $post->country->name }}</p>
                   <h2  class="m-2 text-lg font-patua-one hover:text-blue-900">{{ $post->title }}</h2>
