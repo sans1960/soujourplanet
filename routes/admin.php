@@ -7,8 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\ArticleController;
+
 use App\Http\Controllers\Admin\DataContactsController;
 use App\Http\Controllers\Admin\SubregionController;
 
