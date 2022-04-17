@@ -101,7 +101,7 @@
                     <option value="group">Group</option>
                   </select>
                 </div>
-                <div class=" flex-row justify-center hidden p-2 mb-3 text-gray-500" id="child">
+                <div class="flex-row justify-center hidden p-2 mb-3 text-gray-500 " id="child">
                   <input type="checkbox" name="children" value="Travel with children">
                   <label class="ml-4">Travel with children</label>
                 </div>
@@ -161,7 +161,7 @@
 
               </textarea>
             </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div class="flex flex-col">
                 @foreach ($post as $item)
                 <h1 class="mt-5 text-lg text-gray-500"> Countries of {{ $item->subregion->name }}</h1>
@@ -184,10 +184,10 @@
             <div class="flex flex-col">
 
                <h1  class="mt-5 text-lg text-center text-gray-500">More sites related</h1>
-               <div class="flex flex-col  justify-start w-full mt-5">
+               <div class="flex flex-col justify-start w-full mt-5">
 
                @foreach ($items as $box)
-               <div class="flex flex-row justify-center items-center mx-auto ">
+               <div class="flex flex-row items-center justify-center mx-auto ">
                    <input type="checkbox" name="posts[]" id="" value="{{ $box->title }}">
                    <p class="ml-4 text-gray-500">{{ $box->title }}</p>
                  </div>
@@ -199,7 +199,7 @@
 
 
 
-            <div class="flex flex-col items-center justify-center mt-5 w-full p-5">
+            <div class="flex flex-col items-center justify-center w-full p-5 mt-5">
                 <div class="mb-4 text-gray-500">
                   <input type="radio"  name="legal" required >
                   <label>I aprove the <span><a href="https://sojournplanet.com/privacy-policy" target="_blank" style="text-decoration: underline;"><b>Privacy Policy</b></a></span>, and the <span><a href="https://sojournplanet.com/terms-and-conditions" target="_blank" style="text-decoration: underline;"><b>Terms and Conditions</b></a></span></label><br>

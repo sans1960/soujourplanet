@@ -26,8 +26,7 @@ Route::post('search',[PostController::class,'search'])->name('search');
 
 Route::resource('photos',PhotoController::class)->names('admin.photos');
 Route::resource('locations',LocationController::class)->names('admin.locations');
-Route::resource('pages',PageController::class)->names('admin.pages');
-Route::resource('articles',ArticleController::class)->names('admin.articles');
+
 Route::get('get-countries',[PostController::class,'getCountries'])->name('getcountries');
 
 

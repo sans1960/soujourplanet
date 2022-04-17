@@ -26,8 +26,7 @@ Route::get('post/{post}',[FrontController::class,'viewpost'])->name('posts.post'
 Route::get('country/{country}',[FrontController::class,'postscountries'])->name('posts.countries');
 Route::get('category/{category}',[FrontController::class,'postscategory'])->name('posts.categories');
 Route::get('country/{country}/category/{category}',[FrontController::class,'postscountcat'])->name('posts.countcat');
-Route::get('blog',[PageArticleController::class,'index'])->name('blog');
-Route::get('blog/{blog}',[PageArticleController::class,'pageArticles'])->name('blog.articles');
+
 Route::get('/contact/destination/{dstination}/{slug}/subregion/{subregion}/country/{country}',[ContactController::class,'viewForm'])->name('contact');
 Route::post('sendform',[ContactController::class,'sendForm'])->middleware(ProtectAgainstSpam::class)->name('sendform');
 Route::get('/feed/europe', [RssFeedController::class,'rssEurope'])->name('feed.europe');
