@@ -38,7 +38,7 @@
           <a href="{{ route('admin.posts.index') }}"  class="mr-4">Posts</a>
           <a href="{{ route('admin.photos.index') }}"  class="mr-4">Images</a>
           <a href="{{ route('admin.locations.index') }}"  class="mr-4">Locations</a>
-
+          <a href="{{ route('admin.tags.index') }}"  class="mr-4">Tags</a>
           <a href="{{ route('admin.data') }}"  class="mr-4">Data</a>
           <a href="{{ route('find') }}"  class="mr-4">Find</a>
         </div>
