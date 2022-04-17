@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -14,7 +16,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('admin.tags.index');
+        $tags = Tag::all();
+        return view('admin.tags.index',compact('tags'));
     }
 
     /**
@@ -35,7 +38,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->image->store('tags', 'public');
+        $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->image = $request->image->hashName();
+        $tag->slug = Str::slug($request->name);
+        $tag->description = $request->descriptionj;
+        $tag->save();
+        return redirect()->route('admin.tags.index')->with('info','Tag Created') ;
     }
 
     /**
@@ -55,9 +65,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        return view('admin.tags.edit');
+        return view('admin.tags.edit',compact('tag'));
     }
 
     /**
@@ -67,9 +77,18 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        if($request->hasFile('image')){
+            unlink(storage_path('app/public/tags/'.$tag->image));
+            $request->image->store('tags', 'public');
+            $tag->image = $request->image->hashName();
+        }
+        $tag->name = $request->name;
+        $tag->slug = Str::slug($request->name);
+        $tag->description = $request->description;
+        $tag->update();
+        return redirect()->route('admin.tags.index')->with('info','Tag Updated') ;
     }
 
     /**
@@ -78,8 +97,13 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        if(file_exists(storage_path('app/public/tags/'.$tag->image))){
+            unlink(storage_path('app/public/tags/'.$tag->image));
+
+        }
+        $tag->delete();
+        return redirect()->route('admin.tags.index')->with('info','Tag Deleted');
     }
 }

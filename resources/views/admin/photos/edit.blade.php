@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mx-auto">
     <div class="w-1/2 p-4 mx-auto mt-5 ">
-        <h1 class="mt-5 text-xl text-center font-patua-one"> Create Photo</h1>
+        <h1 class="mt-5 text-xl text-center font-patua-one"> Edit Photo</h1>
         <form action="{{ route('admin.photos.update',$photo) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')

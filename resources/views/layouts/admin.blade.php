@@ -19,6 +19,11 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <style>
+        #sortbox:checked ~ #sortboxmenu {
+            opacity: 1;
+        }
+    </style>
 
 
 
@@ -38,8 +43,28 @@
           <a href="{{ route('admin.posts.index') }}"  class="mr-4">Posts</a>
           <a href="{{ route('admin.photos.index') }}"  class="mr-4">Images</a>
           <a href="{{ route('admin.locations.index') }}"  class="mr-4">Locations</a>
-          <a href="{{ route('admin.tags.index') }}"  class="mr-4">Tags</a>
-          <a href="{{ route('admin.data') }}"  class="mr-4">Data</a>
+          <div class="relative">
+            <input type="checkbox" id="sortbox" class="hidden absolute">
+            <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
+            <span class="text-lg">Pages</span>
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </label>
+
+                <div id="sortboxmenu" class="absolute mt-1 right-1 top-full min-w-max shadow rounded opacity-0 bg-gray-300 border border-gray-400 transition delay-75 ease-in-out z-10">
+                <ul class="block text-right text-gray-900">
+
+                    <li>
+                        <a href="{{ route('admin.tags.index') }}"  class="block px-3 py-2 hover:bg-gray-200">Tags</a>
+                    </li>
+                    <li><a href="#" class="block px-3 py-2 hover:bg-gray-200">Pages</a></li>
+                    <li><a href="#" class="block px-3 py-2 hover:bg-gray-200">Articles</a></li>
+                </ul>
+            </div>
+        </div>
+
+          <a href="{{ route('admin.data') }}"  class="ml-6 mr-4">Data</a>
           <a href="{{ route('find') }}"  class="mr-4">Find</a>
         </div>
         <div class="flex flex-row ">
