@@ -58,7 +58,7 @@
                     <li>
                         <a href="{{ route('admin.tags.index') }}"  class="block px-3 py-2 hover:bg-gray-200">Tags</a>
                     </li>
-                    <li><a href="#" class="block px-3 py-2 hover:bg-gray-200">Pages</a></li>
+                    <li><a href="{{ route('admin.pages.index') }}" class="block px-3 py-2 hover:bg-gray-200">Pages</a></li>
                     <li><a href="#" class="block px-3 py-2 hover:bg-gray-200">Articles</a></li>
                 </ul>
             </div>

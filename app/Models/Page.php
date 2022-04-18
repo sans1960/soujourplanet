@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Page extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','slug','image','description'];
+    protected $fillable = ['name','slug','image','description','date','tag_id','caption'];
 
     public function getRouteKeyName()
     {
         return 'slug';
     }
-    public function page(){
-        return $this->hasMany(Page::class);
+    public function tag(){
+        return $this->belongsTo(Tag::class);
     }
 }
