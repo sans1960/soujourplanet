@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Page;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Tag;
 
 class PageController extends Controller
 {
@@ -14,7 +17,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.index');
+        $pages = Page::all();
+        return view('admin.pages.index',compact('pages'));
     }
 
     /**
@@ -24,7 +28,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $tags = Tag::all();
+        return view('admin.pages.create',compact('tags'));
     }
 
     /**
@@ -35,7 +40,17 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->image->store('pages', 'public');
+        $page = new Page();
+        $page->name = $request->name;
+        $page->image = $request->image->hashName();
+        $page->slug = Str::slug($request->name);
+        $page->description = $request->description;
+        $page->caption = $request->caption;
+        $page->date = $request->date;
+        $page->tag_id = $request->tag_id;
+        $page->save();
+        return redirect()->route('admin.pages.index')->with('info','Page Created') ;
     }
 
     /**
@@ -55,9 +70,10 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Page $page)
     {
-        return view('admin.pages.edit');
+        $tags = Tag::all();
+        return view('admin.pages.edit',compact('page','tags'));
     }
 
     /**
@@ -67,9 +83,21 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Page $page)
     {
-        //
+        if($request->hasFile('image')){
+            unlink(storage_path('app/public/pages/'.$page->image));
+            $request->image->store('pages', 'public');
+            $page->image = $request->image->hashName();
+        }
+        $page->name = $request->name;
+        $page->slug = Str::slug($request->name);
+        $page->description = $request->description;
+        $page->caption = $request->caption;
+        $page->date = $request->date;
+        $page->tag_id = $request->tag_id;
+        $page->update();
+        return redirect()->route('admin.pages.index')->with('info','Page Updated') ;
     }
 
     /**
@@ -78,8 +106,14 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-        //
+
+        if(file_exists(storage_path('app/public/pages/'.$page->image))){
+            unlink(storage_path('app/public/pages/'.$page->image));
+
+        }
+        $page->delete();
+        return redirect()->route('admin.pages.index')->with('info','Page Deleted');
     }
 }

@@ -43,7 +43,8 @@ class TagController extends Controller
         $tag->name = $request->name;
         $tag->image = $request->image->hashName();
         $tag->slug = Str::slug($request->name);
-        $tag->description = $request->descriptionj;
+        $tag->description = $request->description;
+
         $tag->save();
         return redirect()->route('admin.tags.index')->with('info','Tag Created') ;
     }
