@@ -104,6 +104,10 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
+        if(file_exists(storage_path('app/public/photos'.$photo->image))){
+            unlink(storage_path('app/public/photos/'.$photo->image));
+
+        }
         $photo->delete();
         return redirect()->route('admin.photos.index')->with('info','Photo Deleted');
     }

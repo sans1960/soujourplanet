@@ -115,6 +115,10 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
+        if(file_exists(storage_path('app/public/country/'.$country->head))){
+            unlink(storage_path('app/public/country/'.$country->head));
+
+        }
         $country->delete();
         return redirect()->route('admin.countries.index')->with('info','Country Deleted');
     }
