@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.essential')
 @section('content')
 <div class="container flex flex-col w-3/4 mx-auto mt-5">
     <h1 class="text-3xl mb-6 text-center font-patua-one">Pages</h1>
@@ -13,18 +13,18 @@
           <h4 class="mb-3 text-2xl
 
           font-patua-one tracking-tight ">
-            {{ $page->title }}
+            {{ $page->name }}
           </h4>
           <div class="mb-6  leading-normal text-justify ">
-            {!! Str::limit($page->body,200) !!}
+            {!! Str::limit($page->description,200) !!}
           </div>
           <div class="flex flex-row justify-between items-center">
             <a
-            href="{{ route('blog.articles',$page->slug) }}"
+            href="{{ route('sites.articles',$page->slug) }}"
              class=" px-4 py-2 text-white bg-gray-700 mt-5 rounded-md">
              Read more
            </a>
-           <p class="text-lg font-patua-one">{{ $page->category->name }}</p>
+           <p class="text-lg font-patua-one">{{ $page->tag->name }}</p>
            <p>{!! \Carbon\Carbon::parse($page->date)->format('d-m-Y') !!}</p>
           </div>
 

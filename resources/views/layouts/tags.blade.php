@@ -8,8 +8,8 @@
     </div>
     <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
 
-        @foreach ($destinations as $destination)
-        <a href="{{ route('posts.destination',$destination) }}" class="m-2 ">{{ $destination->name }}</a>
+        @foreach ($tags as $tag)
+        <a href="" class="m-2 ">{{ $tag->name }}</a>
         @endforeach
 
 

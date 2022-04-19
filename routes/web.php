@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
-
+use App\Http\Controllers\PageArticleController;
 use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,8 @@ Route::get('post/{post}',[FrontController::class,'viewpost'])->name('posts.post'
 Route::get('country/{country}',[FrontController::class,'postscountries'])->name('posts.countries');
 Route::get('category/{category}',[FrontController::class,'postscategory'])->name('posts.categories');
 Route::get('country/{country}/category/{category}',[FrontController::class,'postscountcat'])->name('posts.countcat');
-
+Route::get('sites',[PageArticleController::class,'index'])->name('sites');
+Route::get('sites/{slug}',[PageArticleController::class,'pageArticles'])->name('sites.articles');
 Route::get('/contact/destination/{dstination}/{slug}/subregion/{subregion}/country/{country}',[ContactController::class,'viewForm'])->name('contact');
 Route::post('sendform',[ContactController::class,'sendForm'])->middleware(ProtectAgainstSpam::class)->name('sendform');
 Route::get('/feed/europe', [RssFeedController::class,'rssEurope'])->name('feed.europe');
