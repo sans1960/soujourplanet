@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\DataContactsController;
 use App\Http\Controllers\Admin\SubregionController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\ArticleController;
 
 
 
@@ -25,6 +26,7 @@ Route::get('find',[PostController::class,'find'])->name('find');
 Route::post('search',[PostController::class,'search'])->name('search');
 Route::resource('tags',TagController::class)->names('admin.tags');
 Route::resource('pages',PageController::class)->names('admin.pages');
+Route::resource('articles',ArticleController::class)->names('admin.articles');
 Route::resource('photos',PhotoController::class)->names('admin.photos');
 Route::resource('locations',LocationController::class)->names('admin.locations');
 

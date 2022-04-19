@@ -17,4 +17,7 @@ class Page extends Model
     public function tag(){
         return $this->belongsTo(Tag::class);
     }
+    public function article(){
+        return $this->hasMany(Article::class);
+    }
 }

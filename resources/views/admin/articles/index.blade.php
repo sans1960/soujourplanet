@@ -11,8 +11,8 @@
 @endif
 </div>
 <div class="container flex flex-row items-center justify-between p-4 mx-auto mt-5 border-b-4">
-    <h1 class="text-2xl">All Pages</h1>
-    <a href="{{ route('admin.pages.create') }}" class="px-6 py-2 text-white bg-gray-700 rounded-lg">
+    <h1 class="text-2xl">All Articles</h1>
+    <a href="{{ route('admin.articles.create') }}" class="px-6 py-2 text-white bg-gray-700 rounded-lg">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg> </a>
@@ -25,43 +25,43 @@
                     <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
 
                         <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell"> Name</th>
-                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Tag</th>
-                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Date</th>
+                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Page</th>
+                        <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Order</th>
 
                         <th colspan="2" class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                       @foreach ($pages as $page)
-                       <tr>
+               <tbody>
+                @foreach ($articles as $article)
+                <tr>
 
-                        <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $page->name }}</td>
-                        <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">
-                           {{ $page->tag->name }}
-                        </td>
-                        <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{!! \Carbon\Carbon::parse($page->date)->format('d-m-Y') !!}</td>
+                 <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{  $article->name }}</td>
+                 <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">
+                    {{ $article->page->name }}
+                 </td>
+                 <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">{{ $article->order }}</td>
 
 
 
-                        <td>
-                            <a class="" href="{{ route('admin.pages.edit',$page) }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                  </svg>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="{{ route('admin.pages.destroy',$page) }}" method="post">
-                              @csrf
-                              @method('delete')
-                              <button class="show_confirm" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                              </svg></button>
-                          </form>
-                        </td>
-                        </tr>
-                       @endforeach
-                </tbody>
+                 <td>
+                     <a class="" href="{{ route('admin.articles.edit',$article) }}">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                           </svg>
+                     </a>
+                 </td>
+                 <td>
+                     <form action="{{ route('admin.articles.destroy',$article) }}" method="post">
+                       @csrf
+                       @method('delete')
+                       <button class="show_confirm" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                       </svg></button>
+                   </form>
+                 </td>
+                 </tr>
+                @endforeach
+               </tbody>
               </table>
               <div class="mt-6">
 
