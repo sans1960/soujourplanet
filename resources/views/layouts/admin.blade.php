@@ -9,14 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <style>

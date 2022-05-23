@@ -42,15 +42,16 @@ class FrontController extends Controller
     }
     public function viewpost(Post $post)
     {
-        $posts = Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->get();
-        if($posts->isNotEmpty()){
-            $posts = Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->get();
+
+        $posts= Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->take(8)->get();
+        if(count($posts)>5){
+            $posts= Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->take(8)->get();
         }else{
-            $posts = Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(5)->get();
-            if($posts->isEmpty()){
-              $posts= Post::where('destination_id',$post->destination_id)->where('id','<>',$post->id)->take(5)->get();
+            $posts= Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(8)->get();
+            if(count($posts)>5){
+                $posts= Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(8)->get();
             }else{
-                $posts = Post::where('subregion_id',$post->subregion_id)->where('id','<>',$post->id)->take(5)->get();
+                $posts= Post::where('destination_id',$post->destination_id)->where('id','<>',$post->id)->take(8)->get();
             }
         }
 
