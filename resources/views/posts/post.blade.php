@@ -5,32 +5,33 @@
     <figure>
         <img class="w-full mx-auto rounded-lg md:w-3/4" src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="Trulli" >
         <figcaption class="text-center text-gray-600 font-open-sans">{{ $post->photo->caption }}</figcaption>
-      </figure>
+    </figure>
       <h1 class="mt-5 mb-5 text-3xl text-center font-patua-one">{{ $post->title }}</h1>
-      <div class="flex flex-col items-center justify-center mt-5 mb-5 text-gray-600 md:flex-row font-patua-one">
+      <div class="flex items-center justify-center mt-5 mb-5 text-gray-600 font-patua-one">
 
 
-        <p class="mr-3">{{ $post->country->name }}</p>
+        <p class="mr-3 text-sm md:text-xl">{{ $post->country->name }}</p>
         <p>|</p>
-        <p class="ml-3">{{ $post->category->name }}</p>
+        <p class="ml-3 text-sm md:text-xl">{{ $post->category->name }}</p>
     </div>
-    <div class="w-3/4 p-3 m-4 mx-auto tracking-wide text-gray-600 font-open-sans indent-0">
+    <div class="w-3/4 p-3 mx-auto mt-3 tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0">
         {!! $post->extract !!}
     </div>
-    <div class="w-3/4 p-3 m-3 mx-auto tracking-wide text-gray-600 font-open-sans indent-0">
+    <div class="w-3/4 p-3 mx-auto tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0">
        {!! $post->body !!}
    </div>
    <div class="flex items-center justify-center mx-auto mt-4 mb-5">
     <a class="px-8 py-2 text-sm tracking-wider bg-white border-2 border-gray-900 cursor-pointer md:text-base rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" href="{{ route('contact',[$post->destination_id,$post->slug,$post->subregion_id,$post->country_id]) }}">Start to plan my trip</a>
-</div>
-<div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
+   </div>
+   <div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
 
-</div>
-<div class="social-share">
+    </div>
+    <div class="social-share">
     <p>Share this Post with</p>
     {!! Share::currentPage('Share')->facebook()->twitter(); !!}
+    </div>
 </div>
-</div>
+
 <div class="w-3/4 mx-auto mt-5 mb-5">
     <h3 class="mt-6 text-2xl text-center font-patua-one">Posts relataded</h3>
     <div class="owl-carousel owl-theme">
