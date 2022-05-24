@@ -1,7 +1,7 @@
 @extends('layouts.post')
 @section('content')
 
-<div class="flex flex-col w-full mt-5 ml-2 mr-2 lg:w-3/4 lg:mx-auto">
+<div class="flex flex-col w-full mt-5 ml-2 mr-2 lg:w-3/4 lg:mx-auto border-b-4 border-b-gray-900">
     <figure>
         <img class="w-full mx-auto rounded-lg md:w-3/4" src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="Trulli" >
         <figcaption class="text-center text-gray-600 font-open-sans">{{ $post->photo->caption }}</figcaption>
@@ -26,16 +26,18 @@
    <div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
 
     </div>
-    <div class="social-share">
-    <p>Share this Post with</p>
-    {!! Share::currentPage('Share')->facebook()->twitter(); !!}
+    <div class="social-share inline-flex mb-2">
+    <p>Share this Post with: <span> {!! Share::currentPage('Share')->facebook()->twitter(); !!}</span></p>
+
     </div>
 </div>
 
 <div class="w-3/4 mx-auto mt-5 mb-5">
     <h3 class="mt-6 text-2xl text-center font-patua-one">Posts relataded</h3>
     <div class="owl-carousel owl-theme">
+
         @foreach ($posts as $post)
+
         <div class="flex flex-col justify-center item">
             <a class="mx-auto " href="{{ route('posts.post',$post) }}">
                 <div class="m-5 overflow-hidden rounded-lg shadow-xl ">
@@ -47,6 +49,8 @@
             </a>
 
         </div>
+
+
 
         @endforeach
     </div>
