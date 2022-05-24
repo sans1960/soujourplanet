@@ -14,10 +14,10 @@
         <p>|</p>
         <p class="ml-3 text-sm md:text-xl">{{ $post->category->name }}</p>
     </div>
-    <div class="w-3/4 p-3 mx-auto mt-3 tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0">
+    <div class="w-3/4 p-3 mx-auto mt-3 tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:text-lg">
         {!! $post->extract !!}
     </div>
-    <div class="w-3/4 p-3 mx-auto tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0">
+    <div class="w-3/4 p-3 mx-auto tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:text-lg">
        {!! $post->body !!}
    </div>
    <div class="flex items-center justify-center mx-auto mt-4 mb-5">

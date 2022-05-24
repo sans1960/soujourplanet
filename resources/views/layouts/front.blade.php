@@ -22,7 +22,7 @@
     </div>
 @include('layouts.navbar',['destinations'=>$destinations=App\Models\Destination::all()])
       @yield('content')
-      <footer class="mt-5 bg-slate-800">
+      <footer class="mt-5 bg-slate-800 text-sm">
         <div class="flex flex-col items-center justify-between p-6 mt-5 text-white md:flex-row font-open-sans">
             <div class="flex flex-col items-center justify-start md:flex-row">
             <p>Copyright © 2021 Sojournplanet - All rights reserved -</p>
