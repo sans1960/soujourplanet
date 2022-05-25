@@ -1,7 +1,7 @@
 @extends('layouts.post')
 @section('content')
 
-<div class="flex flex-col w-full mt-5 ml-2 mr-2 lg:w-3/4 lg:mx-auto border-b-4 border-b-gray-900">
+<div class="flex flex-col w-full mt-5 ml-2 mr-2 border-b-4 lg:w-3/4 lg:mx-auto border-b-gray-900">
     <figure>
         <img class="w-full mx-auto rounded-lg md:w-3/4" src="{{ asset('storage/photos/'.$post->photo->image) }}" alt="Trulli" >
         <figcaption class="text-center text-gray-600 font-open-sans">{{ $post->photo->caption }}</figcaption>
@@ -14,10 +14,10 @@
         <p>|</p>
         <p class="ml-3 text-sm md:text-xl">{{ $post->category->name }}</p>
     </div>
-    <div class="w-3/4 p-3 mx-auto mt-3 tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:text-lg">
+    <div class="w-3/4 p-3 mx-auto mt-3 tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:w-3/5 lg:text-lg">
         {!! $post->extract !!}
     </div>
-    <div class="w-3/4 p-3 mx-auto tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:text-lg">
+    <div class="w-3/4 p-3 mx-auto tracking-wide text-gray-600 md:w-2/3 font-open-sans indent-0 lg:w-3/5 lg:text-lg">
        {!! $post->body !!}
    </div>
    <div class="flex items-center justify-center mx-auto mt-4 mb-5">
@@ -26,7 +26,7 @@
    <div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
 
     </div>
-    <div class="social-share inline-flex mb-2">
+    <div class="inline-flex mb-2 social-share">
     <p>Share this Post with: <span> {!! Share::currentPage('Share')->facebook()->twitter(); !!}</span></p>
 
     </div>

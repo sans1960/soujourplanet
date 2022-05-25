@@ -28,7 +28,7 @@
         </div>
     </div>
       @yield('content')
-      <footer class="mt-5 bg-slate-800 text-sm">
+      <footer class="mt-5 text-xs bg-slate-800">
         <div class="flex flex-col items-center justify-between p-6 mt-5 text-white md:flex-row font-open-sans">
             <div class="flex flex-col items-center justify-start md:flex-row">
             <p>Copyright © 2021 Sojournplanet - All rights reserved -</p>
@@ -39,7 +39,7 @@
             </a>
         </div>
 
-        <div class="flex flex-col  items-center justify-center p-6 mt-5 text-white md:flex-row font-patua-one">
+        <div class="flex flex-col items-center justify-center p-6 mt-5 text-white md:flex-row font-patua-one">
             <a target="_blank" class="hover:text-gray-300" href="https://sojournplanet.com/faqs">FAQs</a>
             <a target="_blank" class="md:ml-5 hover:text-gray-300" href="https://sojournplanet.com/terms-and-conditions">Terms and Conditions</a>
             <a target="_blank" class="md:ml-5 hover:text-gray-300" href="https://sojournplanet.com/privacy-policy">Privacy Policy</a>
