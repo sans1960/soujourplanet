@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     use HasFactory;
-    protected $fillable = ['latitud','longitud','post_id'];
+    protected $fillable = ['latitud','longitud','post_id','zoom'];
     public function post(){
         return $this->belongsTo(Post::class);
     }

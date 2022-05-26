@@ -24,7 +24,21 @@
     <a class="px-8 py-2 text-sm tracking-wider bg-white border-2 border-gray-900 cursor-pointer md:text-base rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" href="{{ route('contact',[$post->destination_id,$post->slug,$post->subregion_id,$post->country_id]) }}">Start to plan my trip</a>
    </div>
    <div id="map" class="flex justify-center mx-auto" style="width: 100%;height:400px;">
+    <script>
+        var map = L.map('map').setView([{{ $post->location->latitud }}, {{ $post->location->longitud }}], {{ $post->location->zoom }});
 
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={{ env("MAP_KEY") }}' ,{
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+
+    }).addTo(map);
+
+    L.marker([{{ $post->location->latitud }}, {{ $post->location->longitud }}]).addTo(map);
+        // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        // .openPopup();
+    </script>
     </div>
     <div class="inline-flex mb-2 social-share">
     <p>Share this Post with: <span> {!! Share::currentPage('Share')->facebook()->twitter(); !!}</span></p>
@@ -58,25 +72,11 @@
 
 @endsection
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
 <script src="{{ asset('js/share.js') }}"></script>
-<script src="{{ asset('js/leaflet.js') }}"></script>
-<script>
-    var map = L.map('map').setView([{{ $post->location->latitud }}, {{ $post->location->longitud }}], 13);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={{ env("MAP_KEY") }}' ,{
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
 
-}).addTo(map);
 
-L.marker([{{ $post->location->latitud }}, {{ $post->location->longitud }}]).addTo(map);
-    // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    // .openPopup();
-</script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script>
     $('.owl-carousel').owlCarousel({
     loop:true,

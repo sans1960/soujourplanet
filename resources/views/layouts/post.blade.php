@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/leaflet.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     </head>
     <body>
         <nav class="flex items-center justify-center p-3 bg-gray-800">

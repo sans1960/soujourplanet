@@ -44,7 +44,7 @@ class LocationController extends Controller
         $location->latitud = $request->latitud;
         $location->longitud = $request->longitud;
 
-
+        $location->zoom = $request->zoom;
         $location->post_id = $request->post_id;
         $location->save();
         return redirect()->route('admin.locations.index')->with('info','Location Created') ;
@@ -85,7 +85,7 @@ class LocationController extends Controller
         $location->latitud = $request->latitud;
         $location->longitud = $request->longitud;
 
-
+        $location->zoom = $request->zoom;
         $location->post_id = $request->post_id;
         $location->update();
         return redirect()->route('admin.locations.index')->with('info','Location Updated') ;
