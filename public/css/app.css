@@ -803,6 +803,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .indent-0{
   text-indent: 0px;
 }
+.indent-1{
+  text-indent: 0.25rem;
+}
 .align-baseline{
   vertical-align: baseline;
 }
