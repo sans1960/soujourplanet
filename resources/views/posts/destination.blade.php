@@ -25,7 +25,7 @@
         <div id="drop" style="display: none; position:absolute;" class="flex flex-col items-center justify-around p-8 mt-16 bg-white" >
            @foreach ($categories as $category)
               <div class="p-3" style="">
-                <a class="p-3 text-xl font-patua-one hover:text-red-900" href="">{{ $category->name }}</a>
+                <a class="p-3 text-xl font-patua-one hover:text-red-900" href=" {{ route('posts.destcat',[$destination,$category]) }}">{{ $category->name }}</a>
               </div>
 
            @endforeach
@@ -57,7 +57,7 @@
 </div>
 @endsection
 @section('js')
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 <script>
 $(document).ready(function(){
     $('#btn').click(function() {

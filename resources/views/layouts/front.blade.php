@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ asset('css/social.css') }}">
         <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="{{ asset('js/jquery.js') }}"></script>
 
 
     </head>

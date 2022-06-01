@@ -1,24 +1,5 @@
 @extends('layouts.front')
 @section('content')
-{{-- <div class="container mx-auto p-2 flex justify-start mt-5">
-    <a href="{{ URL::previous() }}" class="bg-green-800 px-4 py-2 text-white rounded-md">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-    </a>
-</div> --}}
-<div class="container mx-auto border-b-4 border-b-gray-400">
-    <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
-        {{-- <a href="" class="m-2 font-bold">All Categories</a> --}}
-        @foreach ($categories as $category)
-            <a class="m-2 hover:font-bold" href="{{ route('posts.countcat',[$country,$category]) }}">{{ $category->name }}</a>
-        @endforeach
-
-
-
-    </div>
-</div>
-
 <div class="container mx-auto border-b-4 border-b-gray-400">
     <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
         <a href="" class="m-2 font-bold">All Posts of {{ $country->name }}</a>
@@ -27,6 +8,23 @@
 
     </div>
 </div>
+
+<div class="container w-3/4 mx-auto">
+    <div class="flex flex-col items-center w-full mx-auto mt-5 md:w-1/4">
+        <button id="btn" class="p-3 text-xl hover:bg-slate-600 hover:text-white rounded-xl font-patua-one">All Categories</button>
+        <div id="drop" style="display: none; position:absolute;" class="flex flex-col items-center justify-around p-8 mt-16 bg-white" >
+           @foreach ($categories as $category)
+              <div class="p-3" style="">
+                <a class="p-3 text-xl font-patua-one hover:text-red-900" href=" {{ route('posts.countcat',[$country,$category]) }}">{{ $category->name }}</a>
+              </div>
+
+           @endforeach
+        </div>
+
+    </div>
+
+</div>
+
 <div class="container grid w-3/4 grid-cols-1 gap-5 mx-auto mt-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     @foreach ($posts as $post)
     <a href="{{ route('posts.post',$post) }}">
@@ -47,4 +45,14 @@
 <div class="container mx-auto mt-8">
     {!! $posts->links() !!}
 </div>
+@endsection
+@section('js')
+
+<script>
+$(document).ready(function(){
+    $('#btn').click(function() {
+      $('#drop').toggle("slide");
+    });
+});
+</script>
 @endsection
