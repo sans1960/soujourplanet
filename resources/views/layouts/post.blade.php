@@ -17,19 +17,18 @@
         <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     </head>
     <body>
-        <nav class="flex items-center justify-center p-3 bg-gray-800">
-            <a href="{{route('index')}}">
+        <nav class="flex items-center justify-around p-3 bg-gray-800">
+            <div>
+               <a href="{{ route('index') }}" class="text-white font-patua-one">Home</a>
+            </div>
+
                 <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
-            </a>
+
+            <div>
+                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel-blog</a>
+            </div>
     </nav>
-    <div class="container mx-auto ">
-        <div class="flex flex-col items-center justify-around mt-4 md:flex-row">
-            <a href="{{ route('index') }}" class="uppercase font-patua-one">
-                home</a>
-            <a  class="uppercase font-patua-one" href="{{ url()->previous() }}">back</a>
-            <a class="uppercase font-patua-one" href="{{ route('sites') }}">pages</a>
-        </div>
-    </div>
+    @include('layouts.navbar',['destinations'=>$destinations=App\Models\Destination::all()])
       @yield('content')
       <footer class="mt-5 text-xs bg-slate-800">
         <div class="flex flex-col items-center justify-between p-6 mt-5 text-white md:flex-row font-open-sans">

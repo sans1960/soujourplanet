@@ -1,16 +1,6 @@
 @extends('layouts.front')
 @section('content')
-<div class="container mx-auto border-b-4 border-b-gray-400">
-    <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
-        {{-- <a href="" class="m-2 font-bold">All Categories</a> --}}
-        @foreach ($categories as $category)
-            <a class="m-2 hover:font-bold" href="{{ route('posts.categories',$category) }}">{{ $category->name }}</a>
-        @endforeach
 
-
-
-    </div>
-</div>
 <div class="container grid w-3/4 grid-cols-1 gap-5 mx-auto mt-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     @foreach ($posts as $post)
     <a href="{{ route('posts.post',$post) }}">

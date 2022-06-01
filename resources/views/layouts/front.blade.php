@@ -9,12 +9,20 @@
         <link rel="stylesheet" href="{{ asset('css/social.css') }}">
         <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
     </head>
     <body>
-        <nav class="flex items-center justify-center p-3 bg-gray-800">
-            <a href="{{route('index')}}">
+        <nav class="flex items-center justify-around p-3 bg-gray-800">
+            <div>
+               <a href="{{ route('index') }}" class="text-white font-patua-one">Home</a>
+            </div>
+
                 <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
-            </a>
+
+            <div>
+                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel-blog</a>
+            </div>
     </nav>
     <div class="flex items-center justify-center text-2xl text-white bg-center h-80" style="background-image: url({{ asset('img/europe.jpg') }});">
         <h1 class="text-6xl tracking-wider font-patua-one">Travel Blog</h1>

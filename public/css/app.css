@@ -474,6 +474,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-3{
   margin-top: 0.75rem;
 }
+.mt-16{
+  margin-top: 4rem;
+}
 .ml-2{
   margin-left: 0.5rem;
 }
@@ -627,9 +630,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded{
   border-radius: 0.25rem;
 }
-.rounded-full{
-  border-radius: 9999px;
-}
 .rounded-md{
   border-radius: 0.375rem;
 }
@@ -653,11 +653,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-4{
   border-width: 4px;
 }
-.border-b-4{
-  border-bottom-width: 4px;
-}
 .border-b-2{
   border-bottom-width: 2px;
+}
+.border-b-4{
+  border-bottom-width: 4px;
 }
 .border-none{
   border-style: none;
@@ -756,6 +756,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-6{
   padding: 1.5rem;
 }
+.p-8{
+  padding: 2rem;
+}
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
@@ -803,21 +806,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .indent-0{
   text-indent: 0px;
 }
-.indent-1{
-  text-indent: 0.25rem;
-}
 .align-baseline{
   vertical-align: baseline;
-}
-.font-open-sans{
-  font-family: "Open Sans", sans-serif;
 }
 .font-patua-one{
   font-family: "Patua One", cursive;
 }
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
+.font-open-sans{
+  font-family: "Open Sans", sans-serif;
 }
 .text-lg{
   font-size: 1.125rem;
@@ -830,6 +826,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .text-xl{
   font-size: 1.25rem;
@@ -852,9 +852,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-medium{
   font-weight: 500;
-}
-.uppercase{
-  text-transform: uppercase;
 }
 .leading-normal{
   line-height: 1.5;
@@ -962,6 +959,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.hover\:bg-slate-600:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
 .hover\:font-bold:hover{
   font-weight: 700;
 }
@@ -976,6 +977,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-gray-300:hover{
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.hover\:text-red-900:hover{
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
 }
 .hover\:text-gray-500:hover{
   --tw-text-opacity: 1;

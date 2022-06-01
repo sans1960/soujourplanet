@@ -1,12 +1,6 @@
 @extends('layouts.front')
 @section('content')
-{{-- <div class="container flex justify-start p-2 mx-auto mt-5">
-    <a href="{{ URL::previous() }}" class="px-4 py-2 text-white bg-green-800 rounded-md">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-    </a>
-</div> --}}
+
 
 <div class="container mx-auto "></div>
     <div>
@@ -25,15 +19,20 @@
 
     </div>
 </div>
- <div class="container mx-auto border-b-4 border-b-gray-400">
-    <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
-        {{-- <a href="" class="m-2 font-bold">All Categories</a> --}}
-        @foreach ($categories as $category)
-        <a href="{{ route('posts.destcat',[$destination,$category]) }}" class="m-2 hover:font-bold">{{ $category->name }}</a>
-        @endforeach
+<div class="container w-3/4 mx-auto">
+    <div class="flex flex-col items-center w-full mx-auto mt-5 md:w-1/4">
+        <button id="btn" class="p-3 text-xl hover:bg-slate-600 hover:text-white rounded-xl font-patua-one">All Categories</button>
+        <div id="drop" style="display: none; position:absolute;" class="flex flex-col items-center justify-around p-8 mt-16 bg-white" >
+           @foreach ($categories as $category)
+              <div class="p-3" style="">
+                <a class="p-3 text-xl font-patua-one hover:text-red-900" href="">{{ $category->name }}</a>
+              </div>
 
+           @endforeach
+        </div>
 
     </div>
+
 </div>
 
 <div class="container grid w-3/4 grid-cols-1 gap-5 mx-auto mt-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -56,4 +55,14 @@
 <div class="container mx-auto mt-8">
     {!! $posts->links() !!}
 </div>
+@endsection
+@section('js')
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+    $('#btn').click(function() {
+      $('#drop').toggle("slide");
+    });
+});
+</script>
 @endsection

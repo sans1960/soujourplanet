@@ -17,10 +17,10 @@ class FrontController extends Controller
     {
 
 
-        $categories = Category::orderBy('name')->get();
+
         $posts = Post::orderBy('date','DESC')->paginate(12);
 
-        return view('welcome', compact('posts', 'categories'));
+        return view('welcome', compact('posts'));
     }
 
     public function postsdestination(Destination $destination)
@@ -42,7 +42,7 @@ class FrontController extends Controller
     }
     public function viewpost(Post $post)
     {
-         $postcountry = $post->country_id;
+
         $posts= Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->take(8)->get();
         if(count($posts)>5){
             $posts= Post::where('country_id',$post->country_id)->where('id','<>',$post->id)->take(8)->get();
@@ -57,7 +57,7 @@ class FrontController extends Controller
 
 
 
-        return view('posts.post', compact('post','posts','postcountry'));
+        return view('posts.post', compact('post','posts'));
     }
     public function postscountries(Country $country)
     {
