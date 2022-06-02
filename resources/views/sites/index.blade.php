@@ -18,10 +18,10 @@
           <div class="mb-6  leading-normal text-justify ">
             {!! Str::limit($page->description,200) !!}
           </div>
-          <div class="flex flex-row justify-between items-center">
+          <div class="flex flex-col md:flex-row justify-between items-center">
             <a
             href="{{ route('sites.articles',$page->slug) }}"
-             class=" px-4 py-2 text-white bg-gray-700 mt-5 rounded-md">
+             class="text-sm md:text-base px-2 py-1 md:px-4 md:py-2 text-white bg-gray-700 mt-5 rounded-md">
              Read more
            </a>
            <p class="text-lg font-patua-one">{{ $page->tag->name }}</p>
