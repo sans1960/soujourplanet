@@ -26,7 +26,7 @@
         <h1 class="text-6xl tracking-wider font-patua-one">Travel Blog</h1>
 
     </div>
-@include('layouts.tags',['tags'=>$tags=App\Models\Tag::all()])
+
       @yield('content')
       <footer class="mt-5 text-xs bg-slate-800">
         <div class="flex flex-col items-center justify-between p-6 mt-5 text-white md:flex-row font-open-sans">

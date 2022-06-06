@@ -1,5 +1,11 @@
 @extends('layouts.essential')
 @section('content')
+<div class="container mx-auto mt-4 flex flex-row justify-around items-center border-b-4 border-b-gray-700 mb-4">
+    @foreach ($tags as $tag)
+        <a href="{{ route('tags.pages',$tag) }}" class="text-xs md:text-sm lg:text-base font-open-sans mb-4 ">{{ $tag->name }}</a>
+    @endforeach
+
+</div>
 <div class="container flex flex-col w-full mx-auto mt-5 md:w-3/4">
 
     @foreach ($pag as $item)
