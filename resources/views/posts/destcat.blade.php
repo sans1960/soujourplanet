@@ -4,8 +4,8 @@
 
 <div class="container mx-auto border-b-4 border-b-gray-400">
 
-    <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-open-sans ">
-        <a href="" class="m-2 text-2xl font-bold">{{ $destination->name }}/{{ $category->name }}</a>
+    <div class="flex flex-row flex-wrap justify-around mt-5 text-xs md:text-sm lg:text-base font-patua-one">
+        <a href="" class="m-2 text-2xl font-bold">{{ $category->name }} of {{ $destination->name }}</a>
 
 
 
@@ -13,7 +13,7 @@
 </div>
 <div class="container w-3/4 mx-auto">
     <div class="flex flex-col items-center w-full mx-auto mt-5 md:w-1/4">
-        <button id="btn" class="p-3 text-xl hover:bg-slate-600 hover:text-white rounded-xl font-patua-one">All Categories</button>
+        <button id="btn" class="p-3 text-xl hover:bg-slate-600 hover:text-white rounded-xl font-patua-one">Categories</button>
         <div id="drop" style="display: none; position:absolute;" class="flex flex-col items-center justify-around p-8 mt-16 bg-white" >
            @foreach ($categories as $category)
               <div class="p-3" style="">

@@ -10,10 +10,10 @@
     @endforeach
 
 </div>
-<div class="container w-3/4 mx-auto mt-5 flex flex-col">
+<div class="container grid  grid-cols-1 gap-5 mx-auto mt-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     @foreach ($pages as $page)
-    <div class="w-full mb-6 flex flex-col rounded-lg shadow-md  md:flex-row shadow-gray-600">
-        <div class="w-full md:w-1/2 lg:w-1/3 flex justify-center items-center">
+    <div class="w-full mb-6 flex flex-col rounded-lg shadow-md overflow-hidden  shadow-gray-600">
+        <div class="w-full  flex justify-center items-center">
             <img
           class="object-fill "
           src="{{ asset('storage/pages/'.$page->image) }}"
@@ -30,20 +30,20 @@
           <div class="mb-6  leading-normal text-justify ">
             {!! Str::limit($page->description,100) !!}
           </div>
-          <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex flex-col  justify-between items-center">
             <a
             href="{{ route('sites.articles',$page->slug) }}"
              class="text-sm md:text-base px-2 py-1 md:px-4 md:py-2 text-white bg-gray-700 mt-5 rounded-md">
              Read more
            </a>
-           <p class="text-lg font-patua-one">{{ $page->tag->name }}</p>
-           <p>{!! \Carbon\Carbon::parse($page->date)->format('d-m-Y') !!}</p>
+           <p class="text-lg font-patua-one mt-5">{{ $page->tag->name }}</p>
+           <p class="font-patua-one mt-5">{!! \Carbon\Carbon::parse($page->date)->format('F-d-Y') !!}</p>
           </div>
 
         </div>
       </div>
 
     @endforeach
-</div>
+    </div>
 
 @endsection

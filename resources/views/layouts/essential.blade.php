@@ -12,17 +12,16 @@
     </head>
     <body>
         <nav class="flex items-center justify-around p-3 bg-gray-800">
-            <div>
-               <a href="{{ route('index') }}" class="text-white font-patua-one">Home</a>
-            </div>
-
-                <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
 
             <div>
-                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel-blog</a>
+                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel Blog</a>
             </div>
+            <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
+            <div>
+                <a href="{{ route('index') }}" class="text-white font-patua-one">Travel Sights</a>
+             </div>
     </nav>
-    <div class="flex items-center justify-center text-2xl text-white bg-center h-80" style="background-image: url({{ asset('img/europe.jpg') }});">
+    <div class="flex items-center justify-center text-2xl text-white bg-center h-80" style="background-image: url({{ asset('img/miami.webp') }}); background-repeat:no-repeat;background-size:cover;">
         <h1 class="text-6xl tracking-wider font-patua-one">Travel Blog</h1>
 
     </div>

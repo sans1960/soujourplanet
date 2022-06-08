@@ -12,7 +12,7 @@ class PageArticleController extends Controller
 {
     public function allPages(){
         $tags = Tag::all();
-        $pages = Page::all();
+        $pages = Page::all()->sortBy('date');
         return view('sites.pages',compact('pages','tags'));
     }
     public function pageArticles($slug){

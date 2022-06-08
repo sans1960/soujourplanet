@@ -19,14 +19,13 @@
     <body>
         <nav class="flex items-center justify-around p-3 bg-gray-800">
             <div>
-               <a href="{{ route('index') }}" class="text-white font-patua-one">Home</a>
+                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel Blog</a>
             </div>
-
-                <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
-
+            <img src="{{ asset('img/ll.png') }}" class="" width="100" alt="">
             <div>
-                <a href="{{ route('sites') }}" class="text-white font-patua-one">Travel-blog</a>
+               <a href="{{ route('index') }}" class="text-white font-patua-one">Travel Sights</a>
             </div>
+
     </nav>
     @include('layouts.navbar',['destinations'=>$destinations=App\Models\Destination::all()])
       @yield('content')

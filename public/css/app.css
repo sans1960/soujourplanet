@@ -737,10 +737,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fill-current{
   fill: currentColor;
 }
-.object-cover{
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 .object-fill{
   -o-object-fit: fill;
      object-fit: fill;
@@ -1071,9 +1067,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:ml-5{
     margin-left: 1.25rem;
   }
-  .md\:flex{
-    display: flex;
-  }
   .md\:table{
     display: table;
   }
@@ -1142,9 +1135,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:mx-auto{
     margin-left: auto;
     margin-right: auto;
-  }
-  .lg\:flex{
-    display: flex;
   }
   .lg\:w-3\/4{
     width: 75%;
