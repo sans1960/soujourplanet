@@ -13,6 +13,10 @@
             <div class="flex flex-col items-center justify-center max-w-screen-xl p-3 rounded-lg h-80" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ asset('storage/pages/'.$item->image) }}');background-size:cover;">
                 <h1 class="text-center text-white text 2xl md:text-5xl font-patua-one">{{ $item->name }}</h1>
             </div>
+            <div class=" flex flex-row justify-around items-center">
+                <p class="font-patua-one mt-5">{!! \Carbon\Carbon::parse($item->date)->format('F j, Y') !!}</p>
+                <p class="text-lg font-patua-one mt-5">{{ $item->tag->name }}</p>
+            </div>
 
             <div class="w-full p-3 mx-auto text-xl tracking-wide md:w-3/4 font-open-sans indent-0">
                 {!! $item->description !!}

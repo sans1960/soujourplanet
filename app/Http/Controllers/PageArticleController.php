@@ -12,7 +12,7 @@ class PageArticleController extends Controller
 {
     public function allPages(){
         $tags = Tag::all();
-        $pages = Page::all()->sortBy('date');
+        $pages = Page::all()->sortByDesc('date');
         return view('sites.pages',compact('pages','tags'));
     }
     public function pageArticles($slug){
@@ -22,7 +22,7 @@ class PageArticleController extends Controller
     }
     public function pagesTag(Tag $tag){
         $tags = Tag::all();
-       $pages = Page::where('tag_id',$tag->id)->get();
+       $pages = Page::where('tag_id',$tag->id)->orderBy('date','desc')->get();
        return view('sites.tags',compact('pages','tag','tags'));
 
 
