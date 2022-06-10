@@ -58,6 +58,9 @@
         </div>
 
           <a href="{{ route('admin.data') }}"  class="ml-6 mr-4">Data</a>
+          <a href="{{ route('admin.info') }}"  class="ml-6 mr-4">Info</a>
+
+
           <a href="{{ route('find') }}"  class="mr-4">Find</a>
         </div>
         <div class="flex flex-row ">

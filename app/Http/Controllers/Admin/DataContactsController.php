@@ -12,6 +12,11 @@ class DataContactsController extends Controller
         echo "<pre>";
         print_r($contacts);
     }
+    public function info(){
+        $info =  json_decode(file_get_contents(storage_path() . "/app/info.json"), true);
+         echo "<pre>";
+        print_r($info);
+    }
 
 
 }

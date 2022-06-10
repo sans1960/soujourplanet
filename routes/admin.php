@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ArticleController;
 
 Route::get('/admin',[PanelController::class,'index'])->name('admin.home');
 Route ::get('data',[DataContactsController::class,'index'])->name('admin.data');
+Route ::get('info',[DataContactsController::class,'info'])->name('admin.info');
 Route::resource('destinations',DestinationController::class)->names('admin.destinations');
 Route::resource('subregions',SubregionController::class)->names('admin.subregions');
 Route::resource('countries',CountryController::class)->names('admin.countries');
