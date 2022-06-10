@@ -14,6 +14,7 @@ class Page extends Model
     {
         return 'slug';
     }
+
     public function tag(){
         return $this->belongsTo(Tag::class);
     }

@@ -8,11 +8,51 @@ use App\Models\Country;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use App\Mail\ContactTrip;
+use App\Mail\InfoArticle;
 use App\Notifications\NewContact;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Article;
+use App\Notifications\NewInfo;
 
 class ContactController extends Controller
 {
+    public function formArticle( $id){
+        $article = Article::findOrFail($id);
+        return view('forms.article',compact('article'));
+    }
+    public function sendFormArticle(Request $request){
+        $toEmail    =   $request->email;
+        $info = array(
+            "article" => $request->article,
+            "page"     =>$request->page,
+            "tag"     =>$request->tag,
+            "code"        => $request->code,
+            "trait"     =>    $request->trait,
+            "name"       =>   $request->name,
+            "surname"       =>   $request->surname,
+            "phone"       =>   $request->phone,
+            "city"       =>   $request->city,
+            "state"       =>   $request->state,
+            "zipcode"       =>   $request->zipcode,
+            "message"       =>   $request->message,
+        );
+        $Info = Storage::disk('local')->exists('info.json') ? json_decode(Storage::disk('local')->get('info.json')) : [];
+        $inputData = $request->all();
+
+        $inputData['datetime_submitted'] = date('Y-m-d H:i:s');
+
+        array_push($Info,$inputData);
+
+        Storage::disk('local')->put('info.json', json_encode($Info));
+        Mail::to($toEmail)->send(new InfoArticle($info));
+        $note = "New Info";
+        Notification::route('mail', 'g.sans.real@gmail.com')
+                ->notify(new NewInfo($note));
+
+
+        return view('forms.sendedInfo',compact('info'));
+
+    }
     public function viewForm($destination_id, $slug,$subregion_id,$country_id){
         $post = Post::where('slug',$slug)->get();
         $countries = Country::where('subregion_id',$subregion_id)->get();

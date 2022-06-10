@@ -1,11 +1,12 @@
 @extends('layouts.essential')
 @section('content')
-<div class="container mx-auto mt-4 flex flex-row justify-around items-center border-b-4 border-b-gray-700 mb-4">
+<div class="container flex flex-row items-center justify-around mx-auto mt-4 mb-4 border-b-4 border-b-gray-700">
     @foreach ($tags as $tag)
-        <a href="{{ route('tags.pages',$tag) }}" class="text-xs md:text-sm lg:text-base font-open-sans mb-4 ">{{ $tag->name }}</a>
+        <a href="{{ route('tags.pages',$tag) }}" class="mb-4 text-xs md:text-sm lg:text-base font-open-sans ">{{ $tag->name }}</a>
     @endforeach
 
 </div>
+
 <div class="container flex flex-col w-full mx-auto mt-5 md:w-3/4">
 
     @foreach ($pag as $item)
@@ -13,9 +14,9 @@
             <div class="flex flex-col items-center justify-center max-w-screen-xl p-3 rounded-lg h-80" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ asset('storage/pages/'.$item->image) }}');background-size:cover;">
                 <h1 class="text-center text-white text 2xl md:text-5xl font-patua-one">{{ $item->name }}</h1>
             </div>
-            <div class=" flex flex-row justify-around items-center">
-                <p class="font-patua-one mt-5">{!! \Carbon\Carbon::parse($item->date)->format('F j, Y') !!}</p>
-                <p class="text-lg font-patua-one mt-5">{{ $item->tag->name }}</p>
+            <div class="flex flex-row items-center justify-around ">
+                <p class="mt-5 font-patua-one">{!! \Carbon\Carbon::parse($item->date)->format('F j, Y') !!}</p>
+                <p class="mt-5 text-lg font-patua-one">{{ $item->tag->name }}</p>
             </div>
 
             <div class="w-full p-3 mx-auto text-xl tracking-wide md:w-3/4 font-open-sans indent-0">
@@ -34,6 +35,9 @@
               </figure>
               <div class="w-full p-4 mx-auto text-xl tracking-wide md:w-3/4 indent-0 font-open-sans ">
                 {!! $it->body !!}
+            </div>
+            <div class="flex justify-center items-center mx-auto mt-4 mb-4">
+                <a class="px-8 py-2 text-sm tracking-wider bg-white border-2 border-gray-900 cursor-pointer md:text-base rounded-3xl hover:bg-gray-800 hover:text-white font-patua-one" href="{{ route('contact.article',$it->id) }}">More info</a>
             </div>
         </div>
 

@@ -15,9 +15,12 @@ class PageArticleController extends Controller
         $pages = Page::all()->sortByDesc('date');
         return view('sites.pages',compact('pages','tags'));
     }
-    public function pageArticles($slug){
+    public function pageArticles(Page $page){
         $tags = Tag::all();
-        $pag = Page::where('slug',$slug)->get();
+
+
+        $pag = Page::where('slug',$page->slug)->get();
+
         return view('sites.articles',compact('pag','tags'));
     }
     public function pagesTag(Tag $tag){
